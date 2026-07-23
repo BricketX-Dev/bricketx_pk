@@ -1,7 +1,11 @@
 "use client";
 
+import Navbar from "@/components/layout/Navbar"; 
+import Footer from "@/components/layout/Footer";
+
 import { useState } from "react";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, AnimatePresence } from "framer-motion";
+
 
 // --- Animation Variants ---
 const fadeUp: Variants = {
@@ -19,6 +23,7 @@ const staggerContainer: Variants = {
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   const scrollToSection = (id: string) => {
     setIsMenuOpen(false);
@@ -33,47 +38,13 @@ export default function Home() {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.35; }
         }
-        @keyframes scroll-track {
-          to { transform: translateX(-50%); }
-        }
       `}</style>
 
       {/* NAV */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-[#0E1116]/[0.72] border-b border-[#a5adb6]/20 transition-all">
-        <div className="max-w-[1160px] mx-auto px-6">
-          <nav className="flex items-center justify-between h-[68px]">
-            <a href="/" className="font-sans font-bold text-[19px] tracking-tight flex items-center gap-[9px] group">
-              <span className="w-[9px] h-[9px] rounded-full bg-[#c39967] shadow-[0_0_10px_rgba(195,153,103,0.5)] animate-[pulse-dot_2.6s_infinite] group-hover:shadow-[0_0_15px_rgba(195,153,103,0.8)] transition-shadow" />
-              Bricket<span className="text-[#c39967]">X</span>&nbsp;PK
-            </a>
-            
-            <div className="hidden md:flex gap-[30px] text-[14px] text-[#a5adb6] font-medium">
-              <button onClick={() => scrollToSection('#departments')} className="transition-colors hover:text-[#c39967]">Departments</button>
-              <button onClick={() => scrollToSection('#build')} className="transition-colors hover:text-[#c39967]">What We Build</button>
-              <button onClick={() => scrollToSection('#company')} className="transition-colors hover:text-[#c39967]">The Company</button>
-              <button onClick={() => scrollToSection('#culture')} className="transition-colors hover:text-[#c39967]">Culture & Careers</button>
-            </div>
-            
-            <button 
-              onClick={() => scrollToSection('#contact')} 
-              className="hidden md:block font-sans text-[12.5px] tracking-[0.04em] py-[9px] px-[16px] border border-[#a5adb6]/30 rounded-lg text-[#ffffff] transition-all duration-300 hover:border-[#c39967] hover:text-[#c39967] hover:shadow-[0_0_15px_rgba(195,153,103,0.2)]"
-            >
-              CONTACT &rarr;
-            </button>
-            
-            <button 
-              className="md:hidden text-[#ffffff] hover:text-[#c39967] transition-colors" 
-              aria-label="Menu"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              &#9776;
-            </button>
-          </nav>
-        </div>
-      </header>
+      <Navbar />
 
       {/* HERO */}
-      <section className="relative z-10 pt-[76px] pb-[40px]">
+      <section className="relative z-10 pt-[60px] pb-[32px]">
         <div className="max-w-[1160px] mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-[1.05fr_0.95fr] gap-[36px] md:gap-[56px] items-center">
             <motion.div 
@@ -84,9 +55,13 @@ export default function Home() {
               <motion.span variants={fadeUp} className="font-sans font-medium text-[12px] tracking-[0.18em] uppercase text-[#c39967] inline-flex items-center gap-[10px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-[#c39967] before:opacity-70">
                 BricketX Pakistan // Operational & Innovation Hub
               </motion.span>
+              
+              {/* Forced Two Lines */}
               <motion.h1 variants={fadeUp} className="font-sans font-semibold text-[clamp(42px,6vw,72px)] leading-[1.08] tracking-[-0.02em] mt-[22px]">
-                Powering the <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.3)]">BricketX</span> Network
+                Powering the <br /> 
+                <span className="whitespace-nowrap"><span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.3)]">BricketX</span> Network</span>
               </motion.h1>
+              
               <motion.p variants={fadeUp} className="text-[19px] text-[#a5adb6] max-w-[520px] mt-[22px]">
                 Where strategy, technology and execution meet to build and scale the global BricketX ecosystem — from Karachi to the world.
               </motion.p>
@@ -167,7 +142,11 @@ export default function Home() {
 
       {/* CONSOLE STRIP */}
       <div className="relative z-10 border-y border-[#c39967]/30 bg-[#151A21] font-sans font-medium text-[12.5px] tracking-[0.04em] overflow-hidden shadow-[0_0_20px_rgba(195,153,103,0.05)]">
-        <div className="flex gap-[44px] py-[13px] whitespace-nowrap w-max" style={{ animation: 'scroll-track 34s linear infinite' }}>
+        <motion.div 
+          className="flex gap-[44px] py-[13px] whitespace-nowrap w-max" 
+          animate={{ x: [0, "-50%"] }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 34 }}
+        >
           {Array(2).fill(0).map((_, idx) => (
             <div key={idx} className="flex gap-[44px]">
               <span className="text-[#a5adb6]"><b className="text-[#c39967] font-semibold animate-pulse">●</b> SYSTEMS ONLINE</span>
@@ -178,11 +157,11 @@ export default function Home() {
               <span className="text-[#a5adb6]">OPERATIONAL EXCELLENCE <b className="text-[#ffffff] font-semibold">100%</b></span>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* STATS */}
-      <section className="relative z-10 py-[64px]">
+      <section className="relative z-10 py-[48px]">
         <div className="max-w-[1160px] mx-auto px-6">
           <motion.div 
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={staggerContainer}
@@ -207,7 +186,7 @@ export default function Home() {
       </section>
 
       {/* ENGINE-ROOM REFRAME */}
-      <section className="relative z-10 py-[80px] bg-gradient-to-b from-[#151A21] to-[#0E1116] border-y border-[#a5adb6]/20">
+      <section className="relative z-10 py-[60px] bg-gradient-to-b from-[#151A21] to-[#0E1116] border-y border-[#a5adb6]/20">
         <motion.div 
           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
           className="max-w-[1160px] mx-auto px-6"
@@ -215,14 +194,15 @@ export default function Home() {
           <motion.span variants={fadeUp} className="font-sans font-medium text-[12px] tracking-[0.18em] uppercase text-[#c39967] inline-flex items-center gap-[10px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-[#c39967] before:opacity-70">
             The Positioning
           </motion.span>
-          <motion.p variants={fadeUp} className="font-sans text-[clamp(22px,3vw,30px)] font-normal leading-[1.4] max-w-[860px] tracking-[-0.01em] mt-[22px]">
+          
+          <motion.p variants={fadeUp} className="font-sans text-[clamp(22px,3vw,30px)] font-normal leading-[1.4] max-w-[1080px] tracking-[-0.01em] mt-[22px]">
             <b className="text-[#c39967] font-semibold drop-shadow-[0_0_10px_rgba(195,153,103,0.3)]">BricketX Pakistan is the operational backbone of the BricketX network</b> — the Karachi engine room that builds the technology, runs the operations, and produces the work behind a Shariah-compliant investment platform operating across the UK/BVI, Dubai, Kenya and Pakistan.
           </motion.p>
         </motion.div>
       </section>
 
       {/* DEPARTMENTS */}
-      <section id="departments" className="relative z-10 py-[80px]">
+      <section id="departments" className="relative z-10 py-[60px]">
         <div className="max-w-[1160px] mx-auto px-6">
           <motion.div 
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
@@ -274,7 +254,7 @@ export default function Home() {
       </section>
 
       {/* WHAT WE BUILD */}
-      <section id="build" className="relative z-10 py-[80px] bg-[#151A21] border-y border-[#a5adb6]/20">
+      <section id="build" className="relative z-10 py-[60px] bg-[#151A21] border-y border-[#a5adb6]/20">
         <div className="max-w-[1160px] mx-auto px-6">
           <motion.div 
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
@@ -318,7 +298,7 @@ export default function Home() {
       </section>
 
       {/* THE COMPANY */}
-      <section id="company" className="relative z-10 py-[80px]">
+      <section id="company" className="relative z-10 py-[60px]">
         <div className="max-w-[1160px] mx-auto px-6">
           <motion.div 
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
@@ -355,7 +335,7 @@ export default function Home() {
       </section>
 
       {/* GLOBAL OPERATIONS */}
-      <section className="relative z-10 py-[80px] bg-[#151A21] border-y border-[#a5adb6]/20">
+      <section className="relative z-10 py-[60px] bg-[#151A21] border-y border-[#a5adb6]/20">
         <div className="max-w-[1160px] mx-auto px-6">
           <motion.div 
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
@@ -393,7 +373,7 @@ export default function Home() {
       </section>
 
       {/* CULTURE & CAREERS */}
-      <section id="culture" className="relative z-10 py-[80px]">
+      <section id="culture" className="relative z-10 py-[60px]">
         <div className="max-w-[1160px] mx-auto px-6">
           <motion.div 
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
@@ -434,7 +414,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="relative z-10 py-[80px] bg-[#151A21] border-y border-[#a5adb6]/20">
+      <section className="relative z-10 py-[60px] bg-[#151A21] border-y border-[#a5adb6]/20">
         <div className="max-w-[1160px] mx-auto px-6">
           <motion.div 
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
@@ -457,23 +437,50 @@ export default function Home() {
               { q: 'What does the Karachi hub do for BricketX?', a: 'It powers investor experience, digital infrastructure, marketing, production and global coordination for the wider BricketX network.' },
               { q: 'How does BricketX Pakistan fit into the global network?', a: 'It is the execution layer of the group. Pakistan handles operations, Dubai handles management, Kenya handles mining, and the UK/BVI holds the corporate structure.' },
               { q: 'Which departments operate from Pakistan?', a: 'Five departments operate from the Karachi hub: Technology, Marketing, Operations, Creative and Production.' }
-            ].map((faq, i) => (
-              <motion.details key={i} variants={fadeUp} className="border border-[#a5adb6]/20 rounded-[12px] mb-[12px] bg-[#151A21] overflow-hidden transition-all duration-300 group open:border-[#c39967]/60 open:shadow-[0_4px_20px_rgba(195,153,103,0.1)] hover:border-[#c39967]/40" open={i === 0}>
-                <summary className="p-[22px_26px] cursor-pointer font-sans text-[18px] font-medium list-none flex justify-between items-center gap-[16px] [&::-webkit-details-marker]:hidden group-hover:text-[#c39967] transition-colors">
-                  {faq.q}
-                  <span className="font-sans font-semibold text-[#c39967] text-[22px] transition-transform duration-300 group-open:rotate-45">+</span>
-                </summary>
-                <div className="p-[0_26px_24px] text-[#a5adb6] text-[15.5px] max-w-[760px] leading-relaxed">
-                  {faq.a}
-                </div>
-              </motion.details>
-            ))}
+            ].map((faq, i) => {
+              const isOpen = openFaqIndex === i;
+
+              return (
+                <motion.div 
+                  key={i} 
+                  variants={fadeUp} 
+                  onClick={() => setOpenFaqIndex(isOpen ? null : i)}
+                  className={`border rounded-[12px] mb-[12px] bg-[#151A21] overflow-hidden transition-all duration-300 group cursor-pointer hover:border-[#c39967]/40 ${isOpen ? 'border-[#c39967]/60 shadow-[0_4px_20px_rgba(195,153,103,0.1)]' : 'border-[#a5adb6]/20'}`}
+                >
+                  <div className={`p-[22px_26px] font-sans text-[18px] font-medium flex justify-between items-center gap-[16px] transition-colors group-hover:text-[#c39967] ${isOpen ? 'text-[#c39967]' : 'text-[#ffffff]'}`}>
+                    {faq.q}
+                    <motion.span 
+                      animate={{ rotate: isOpen ? 45 : 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className={`font-sans font-semibold text-[22px] flex-shrink-0 transition-colors ${isOpen ? 'text-[#c39967]' : 'text-[#a5adb6] group-hover:text-[#c39967]'}`}
+                    >
+                      +
+                    </motion.span>
+                  </div>
+                  
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                      >
+                        <div className="p-[0_26px_24px] text-[#a5adb6] text-[15.5px] max-w-[760px] leading-relaxed">
+                          {faq.a}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </section>
 
       {/* FINAL CTA */}
-      <section id="contact" className="relative z-10 py-[100px] text-center overflow-hidden">
+      <section id="contact" className="relative z-10 py-[80px] text-center overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#c39967]/5 rounded-full blur-[100px] pointer-events-none" />
         <motion.div 
           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
@@ -483,7 +490,7 @@ export default function Home() {
             Let's Build
           </motion.span>
           <motion.h2 variants={fadeUp} className="font-sans font-semibold text-[clamp(32px,5vw,52px)] mb-[18px] mt-[16px]">
-            The engine room <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.4)]">is open.</span>
+            The engine room <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.4)]">is open</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="text-[#a5adb6] text-[18px] max-w-[520px] mx-auto mb-[34px]">
             Partner with the team powering the BricketX network, or join it.
@@ -499,49 +506,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="relative z-10 border-t border-[#a5adb6]/20 pt-[56px] pb-[40px]">
-        <div className="max-w-[1160px] mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-[28px] lg:gap-[40px]">
-            <div>
-              <a href="/" className="font-sans font-bold text-[22px] tracking-tight flex items-center gap-[9px] mb-[14px] group">
-                <span className="w-[9px] h-[9px] rounded-full bg-[#c39967] shadow-[0_0_10px_rgba(195,153,103,0.5)] group-hover:shadow-[0_0_15px_rgba(195,153,103,0.8)] transition-shadow" />
-                Bricket<span className="text-[#c39967]">X</span>&nbsp;PK
-              </a>
-              <p className="text-[#a5adb6] text-[14px] max-w-[280px]">
-                The operational backbone of the BricketX network. Karachi, Pakistan.
-              </p>
-            </div>
-            
-            <div className="flex flex-col">
-              <h4 className="font-sans font-medium text-[12px] tracking-[0.08em] uppercase text-[#a5adb6] mb-[16px]">Departments</h4>
-              {['Technology', 'Marketing', 'Operations', 'Creative', 'Production'].map(link => (
-                <a key={link} href="#" className="text-[#a5adb6]/70 text-[14px] mb-[10px] transition-colors hover:text-[#c39967] hover:translate-x-1 duration-200 inline-block w-max">{link}</a>
-              ))}
-            </div>
-            
-            <div className="flex flex-col">
-              <h4 className="font-sans font-medium text-[12px] tracking-[0.08em] uppercase text-[#a5adb6] mb-[16px]">Explore</h4>
-              {['What We Build', 'Our Ecosystem', 'Global Operations', 'Innovation Lab'].map(link => (
-                <a key={link} href="#" className="text-[#a5adb6]/70 text-[14px] mb-[10px] transition-colors hover:text-[#c39967] hover:translate-x-1 duration-200 inline-block w-max">{link}</a>
-              ))}
-            </div>
-            
-            <div className="flex flex-col">
-              <h4 className="font-sans font-medium text-[12px] tracking-[0.08em] uppercase text-[#a5adb6] mb-[16px]">Company</h4>
-              <a href="#" className="text-[#a5adb6]/70 text-[14px] mb-[10px] transition-colors hover:text-[#c39967] hover:translate-x-1 duration-200 inline-block w-max">Culture</a>
-              <a href="#" className="text-[#a5adb6]/70 text-[14px] mb-[10px] transition-colors hover:text-[#c39967] hover:translate-x-1 duration-200 inline-block w-max">Careers</a>
-              <a href="#" className="text-[#a5adb6]/70 text-[14px] mb-[10px] transition-colors hover:text-[#c39967] hover:translate-x-1 duration-200 inline-block w-max">Contact</a>
-              <a href="#" className="text-[#a5adb6]/70 text-[14px] mb-[10px] transition-colors hover:text-[#c39967] hover:translate-x-1 duration-200 inline-block w-max">BricketX.com &nearr;</a>
-            </div>
-          </div>
-          
-          <div className="mt-[48px] pt-[24px] border-t border-[#a5adb6]/20 flex justify-between flex-wrap gap-[10px] font-sans font-medium text-[12px] text-[#a5adb6]/70">
-            <span>© 2026 BricketX Pakistan</span>
-            <span>UK/BVI · DUBAI · KENYA · PAKISTAN</span>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
