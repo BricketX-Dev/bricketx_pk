@@ -4,9 +4,13 @@ export default function Footer() {
       <div className="max-w-[1160px] mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-[28px] lg:gap-[40px]">
           <div>
-            <a href="/" className="font-sans font-bold text-[22px] tracking-tight flex items-center gap-[9px] mb-[14px] group">
-              <span className="w-[9px] h-[9px] rounded-full bg-[#c39967] shadow-[0_0_10px_rgba(195,153,103,0.5)] group-hover:shadow-[0_0_15px_rgba(195,153,103,0.8)] transition-shadow duration-300" />
-              Bricket<span className="text-[#c39967]">X</span>&nbsp;PK
+            {/* Reduced width to 120px for a more balanced look */}
+            <a href="/" className="flex items-center mb-[14px] group">
+              <img 
+                src="/logo/logo.png" 
+                alt="BricketX PK Logo" 
+                className="w-[120px] h-auto object-contain -ml-2 transition-opacity duration-300 group-hover:opacity-80" 
+              />
             </a>
             <p className="text-[#a5adb6] text-[14px] max-w-[280px]">
               The operational backbone of the BricketX network. Karachi, Pakistan.
