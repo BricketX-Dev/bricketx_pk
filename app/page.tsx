@@ -129,12 +129,12 @@ export default function Home() {
       {/* CONSOLE STRIP */}
       <div className="relative z-10 border-y border-[#c39967]/30 bg-[#151A21] font-sans font-medium text-[12.5px] tracking-[0.04em] overflow-hidden shadow-[0_0_20px_rgba(195,153,103,0.05)]">
         <motion.div 
-          className="flex gap-[44px] py-[13px] whitespace-nowrap w-max" 
+          className="flex py-[13px] whitespace-nowrap w-max" 
           animate={{ x: [0, "-50%"] }}
-          transition={{ repeat: Infinity, ease: "linear", duration: 34 }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 68 }}
         >
-          {Array(2).fill(0).map((_, idx) => (
-            <div key={idx} className="flex gap-[44px]">
+          {Array(4).fill(0).map((_, idx) => (
+            <div key={idx} className="flex gap-[44px] pr-[44px]">
               <span className="text-[#a5adb6]"><b className="text-[#c39967] font-semibold animate-pulse">●</b> SYSTEMS ONLINE</span>
               <span className="text-[#a5adb6]">KARACHI HUB <em className="text-[#c39967] not-italic">24/7</em></span>
               <span className="text-[#a5adb6]">INVESTOR PORTAL <b className="text-[#ffffff] font-semibold">LIVE</b></span>
@@ -172,24 +172,23 @@ export default function Home() {
       </section>
 
       {/* ENGINE-ROOM REFRAME */}
-{/* ENGINE-ROOM REFRAME */}
       <section className="relative z-10 py-[100px] bg-gradient-to-b from-[#151A21] to-[#0E1116] border-y border-[#a5adb6]/20 overflow-hidden">
         
-        {/* --- Repeating Vertical Texture Background --- */}
+        
         <div 
           className="absolute inset-0 z-0 pointer-events-none opacity-[0.05]"
           style={{
-            backgroundImage: "url('/images/home/Texture-01.svg')", // Update this if your vertical texture has a different name
+            backgroundImage: "url('/images/home/Texture-01.svg')", 
             backgroundRepeat: "repeat",
-            backgroundSize: "280px", // Adjust scale of the pattern here
+            backgroundSize: "280px", 
           }}
         />
         
-        {/* Seamless Fade Gradients to blend the texture perfectly into the dark background */}
+        
         <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-[#151A21] via-transparent via-15% to-transparent" />
         <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-[#0E1116] via-transparent via-15% to-transparent" />
 
-        {/* --- Content --- */}
+        
         <motion.div 
           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
           className="max-w-[1160px] mx-auto px-6 relative z-10"
@@ -204,7 +203,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* DEPARTMENTS */}
+      
       <section id="departments" className="relative z-10 py-[60px]">
         <div className="max-w-[1160px] mx-auto px-6">
           <motion.div 
@@ -241,7 +240,7 @@ export default function Home() {
                 </div>
               </motion.div>
             ))}
-            {/* Full width dept */}
+            
             <motion.div variants={fadeUp} className="md:col-span-2 bg-[#151A21] border border-[#a5adb6]/20 rounded-[14px] p-[28px] transition-all duration-300 hover:border-[#c39967] hover:bg-[#151A21]/80 hover:-translate-y-[4px] hover:shadow-[0_10px_30px_rgba(195,153,103,0.15)] group cursor-pointer">
               <span className="font-sans font-medium text-[12px] text-[#c39967] tracking-[0.1em]">05</span>
               <h3 className="font-sans font-semibold text-[23px] mt-[14px] mb-[8px] group-hover:text-[#c39967] transition-colors">Production</h3>
@@ -303,17 +302,17 @@ export default function Home() {
 {/* THE COMPANY */}
       <section id="company" className="relative z-10 py-[80px] bg-[#0E1116] overflow-hidden border-y border-[#a5adb6]/10">
         
-        {/* --- Repeating Texture Background --- */}
+        
         <div 
           className="absolute inset-0 z-0 pointer-events-none opacity-[0.04]"
           style={{
-            backgroundImage: "url('/images/home/Texture-01.svg')", // Ensure your texture image is saved here
+            backgroundImage: "url('/images/home/Texture-01.svg')", 
             backgroundRepeat: "repeat",
-            backgroundSize: "280px", // Adjust this to scale the cubes up or down
+            backgroundSize: "280px", 
           }}
         />
         
-        {/* Seamless Fade Gradients to blend the texture perfectly into the dark background */}
+        
         <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-[#0E1116] via-transparent via-20% to-transparent" />
         <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-[#0E1116] via-transparent via-20% to-transparent" />
         
