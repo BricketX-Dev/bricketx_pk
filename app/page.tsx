@@ -44,97 +44,83 @@ export default function Home() {
       <Navbar />
 
       {/* HERO */}
-      <section className="relative z-10 pt-[60px] pb-[32px]">
-        <div className="max-w-[1160px] mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-[1.05fr_0.95fr] gap-[36px] md:gap-[56px] items-center">
+      <section className="relative z-10 flex items-center min-h-[calc(100vh-130px)] py-[40px] lg:py-[0px]">
+        <div className="max-w-[1160px] mx-auto px-6 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-[1.05fr_0.95fr] gap-[36px] lg:gap-[64px] items-center">
             <motion.div 
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
+              className="relative z-20"
             >
               <motion.span variants={fadeUp} className="font-sans font-medium text-[12px] tracking-[0.18em] uppercase text-[#c39967] inline-flex items-center gap-[10px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-[#c39967] before:opacity-70">
                 BricketX Pakistan // Operational & Innovation Hub
               </motion.span>
               
-              {/* Forced Two Lines */}
-              <motion.h1 variants={fadeUp} className="font-sans font-semibold text-[clamp(42px,6vw,72px)] leading-[1.08] tracking-[-0.02em] mt-[22px]">
+              {/* Responsive scaling text */}
+              <motion.h1 variants={fadeUp} className="font-sans font-semibold text-[clamp(40px,5vw,72px)] xl:text-[76px] leading-[1.08] tracking-[-0.02em] mt-[20px] lg:mt-[24px]">
                 Powering the <br /> 
                 <span className="whitespace-nowrap"><span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.3)]">BricketX</span> Network</span>
               </motion.h1>
               
-              <motion.p variants={fadeUp} className="text-[19px] text-[#a5adb6] max-w-[520px] mt-[22px]">
+              <motion.p variants={fadeUp} className="text-[17px] lg:text-[19px] text-[#a5adb6] max-w-[520px] mt-[20px] lg:mt-[24px]">
                 Where strategy, technology and execution meet to build and scale the global BricketX ecosystem — from Karachi to the world.
               </motion.p>
-              <motion.div variants={fadeUp} className="font-sans font-medium text-[13px] tracking-[0.05em] text-[#a5adb6] mt-[26px] flex flex-wrap gap-x-[14px] gap-y-[6px]">
+              
+              <motion.div variants={fadeUp} className="font-sans font-medium text-[12px] lg:text-[13px] tracking-[0.05em] text-[#a5adb6] mt-[24px] lg:mt-[28px] flex flex-wrap gap-x-[14px] gap-y-[6px]">
                 <span className="hover:text-[#c39967] transition-colors cursor-default">Technology</span>&middot;
                 <span className="hover:text-[#c39967] transition-colors cursor-default">Operations</span>&middot;
                 <span className="hover:text-[#c39967] transition-colors cursor-default">Marketing</span>&middot;
                 <span className="hover:text-[#c39967] transition-colors cursor-default">Production</span>&middot;
                 <b className="text-[#c39967] font-semibold drop-shadow-[0_0_8px_rgba(195,153,103,0.4)]">Excellence</b>
               </motion.div>
-              <motion.div variants={fadeUp} className="flex flex-wrap gap-[14px] mt-[34px]">
-                <button onClick={() => scrollToSection('#departments')} className="font-sans font-medium text-[15px] py-[14px] px-[26px] rounded-[10px] transition-all duration-300 inline-flex items-center gap-[9px] bg-[#c39967] text-[#212121] hover:bg-[#d4a873] hover:-translate-y-[2px] hover:shadow-[0_8px_20px_rgba(195,153,103,0.3)]">
+              
+              <motion.div variants={fadeUp} className="flex flex-wrap gap-[14px] mt-[36px] lg:mt-[44px]">
+                <button onClick={() => scrollToSection('#departments')} className="font-sans font-medium text-[14px] lg:text-[15px] py-[14px] px-[26px] rounded-[10px] transition-all duration-300 inline-flex items-center gap-[9px] bg-[#c39967] text-[#212121] hover:bg-[#d4a873] hover:-translate-y-[2px] hover:shadow-[0_8px_20px_rgba(195,153,103,0.3)]">
                   Explore the Departments
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                 </button>
-                <button onClick={() => scrollToSection('#build')} className="font-sans font-medium text-[15px] py-[14px] px-[26px] rounded-[10px] transition-all duration-300 inline-flex items-center gap-[9px] border border-[#a5adb6]/30 text-[#ffffff] hover:border-[#c39967] hover:text-[#c39967] hover:bg-[#c39967]/5 hover:-translate-y-[2px]">
+                <button onClick={() => scrollToSection('#build')} className="font-sans font-medium text-[14px] lg:text-[15px] py-[14px] px-[26px] rounded-[10px] transition-all duration-300 inline-flex items-center gap-[9px] border border-[#a5adb6]/30 text-[#ffffff] hover:border-[#c39967] hover:text-[#c39967] hover:bg-[#c39967]/5 hover:-translate-y-[2px]">
                   See What We Build
                 </button>
               </motion.div>
             </motion.div>
 
-            {/* Network Signature Diagram */}
+            {/* Animated & Zoomed Hero Image */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className="relative aspect-square w-full max-w-[340px] md:max-w-[440px] mx-auto order-first md:order-last" 
+              initial={{ opacity: 0, scale: 0.85, filter: "blur(10px)" }}
+              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+              className="relative w-full max-w-[420px] md:max-w-[520px] xl:max-w-[620px] mx-auto order-first md:order-last flex justify-center items-center" 
               aria-hidden="true"
             >
-              <svg viewBox="0 0 400 400" className="w-full h-full overflow-visible drop-shadow-2xl">
-                <circle cx="200" cy="200" r="150" fill="none" stroke="#a5adb6" strokeWidth="1" strokeDasharray="2 6" className="opacity-30" />
-                <circle cx="200" cy="200" r="95" fill="none" stroke="#a5adb6" strokeWidth="1" strokeDasharray="2 6" className="opacity-30" />
+              {/* Premium 3D Levitation & Dynamic Lighting */}
+              <motion.div
+                animate={{ 
+                  y: [-15, 10, -15], 
+                  rotateZ: [0, -1, 1, 0],
+                  filter: [
+                    "drop-shadow(0px 15px 30px rgba(195,153,103,0.15))", 
+                    "drop-shadow(0px 35px 55px rgba(195,153,103,0.35))", 
+                    "drop-shadow(0px 15px 30px rgba(195,153,103,0.15))"
+                  ]
+                }}
+                transition={{ 
+                  duration: 6, 
+                  repeat: Infinity, 
+                  ease: "easeInOut" 
+                }}
+                className="w-full flex justify-center items-center relative"
+              >
+                {/* Static elegant deep space glow (No pulsing, just sets the backdrop) */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#c39967]/10 to-transparent blur-[90px] rounded-full scale-75 pointer-events-none" />
                 
-                <g stroke="#a5adb6" strokeWidth="1" fill="none" className="opacity-30">
-                  <path d="M200 200 L200 55" /><path d="M200 200 L338 130" />
-                  <path d="M200 200 L338 285" /><path d="M200 200 L200 350" />
-                  <path d="M200 200 L62 285" /><path d="M200 200 L62 130" />
-                </g>
-                <g fill="none" stroke="#c39967" strokeWidth="1.5" strokeDasharray="4 200" style={{ animation: 'dash-anim 3.2s linear infinite' }}>
-                  <path d="M200 200 L200 55" />
-                  <path d="M200 200 L338 285" style={{ animationDelay: '1s' }} />
-                  <path d="M200 200 L62 285" style={{ animationDelay: '2s' }} />
-                  <path d="M200 200 L338 130" style={{ animationDelay: '0.5s' }} />
-                </g>
-
-                <g className="cursor-pointer group">
-                  <circle cx="200" cy="55" r="20" fill="#151A21" stroke="#a5adb6" strokeWidth="1.5" className="opacity-60 hover:stroke-[#c39967] transition-colors" />
-                  <text x="200" y="30" textAnchor="middle" fill="#a5adb6" className="font-sans font-medium text-[9.5px] tracking-[0.06em] uppercase hover:fill-[#c39967] transition-colors">Technology</text>
-                  
-                  <circle cx="338" cy="130" r="20" fill="#151A21" stroke="#a5adb6" strokeWidth="1.5" className="opacity-60 hover:stroke-[#c39967] transition-colors" />
-                  <text x="338" y="105" textAnchor="middle" fill="#a5adb6" className="font-sans font-medium text-[9.5px] tracking-[0.06em] uppercase">Marketing</text>
-                  
-                  <circle cx="338" cy="285" r="20" fill="#151A21" stroke="#a5adb6" strokeWidth="1.5" className="opacity-60 hover:stroke-[#c39967] transition-colors" />
-                  <text x="338" y="322" textAnchor="middle" fill="#a5adb6" className="font-sans font-medium text-[9.5px] tracking-[0.06em] uppercase">Operations</text>
-                  
-                  <circle cx="200" cy="350" r="20" fill="#151A21" stroke="#a5adb6" strokeWidth="1.5" className="opacity-60 hover:stroke-[#c39967] transition-colors" />
-                  <text x="200" y="385" textAnchor="middle" fill="#a5adb6" className="font-sans font-medium text-[9.5px] tracking-[0.06em] uppercase">Creative</text>
-                  
-                  <circle cx="62" cy="285" r="20" fill="#151A21" stroke="#a5adb6" strokeWidth="1.5" className="opacity-60 hover:stroke-[#c39967] transition-colors" />
-                  <text x="62" y="322" textAnchor="middle" fill="#a5adb6" className="font-sans font-medium text-[9.5px] tracking-[0.06em] uppercase">Production</text>
-                  
-                  <circle cx="62" cy="130" r="20" fill="#151A21" stroke="#a5adb6" strokeWidth="1.5" className="opacity-60 hover:stroke-[#c39967] transition-colors" />
-                  <text x="62" y="105" textAnchor="middle" fill="#a5adb6" className="font-sans font-medium text-[9.5px] tracking-[0.06em] uppercase">Global</text>
-                  
-                  <circle cx="200" cy="55" r="3" fill="#c39967" className="animate-pulse" />
-                  <circle cx="338" cy="285" r="3" fill="#c39967" className="animate-pulse" style={{ animationDelay: '1s' }} />
-                  <circle cx="62" cy="130" r="3" fill="#c39967" className="animate-pulse" style={{ animationDelay: '0.5s' }} />
-                </g>
-
-                <circle cx="200" cy="200" r="40" fill="#1d160a" stroke="#c39967" strokeWidth="1.5" className="filter drop-shadow-[0_0_10px_rgba(195,153,103,0.3)]" />
-                <text x="200" y="197" textAnchor="middle" fill="#ffffff" className="font-sans text-[13px] font-semibold">BricketX</text>
-                <text x="200" y="213" textAnchor="middle" fill="#c39967" className="font-sans text-[13px] font-semibold">.PK</text>
-              </svg>
+                <img 
+                  src="/images/home/hero.png" 
+                  alt="BricketX Hub Visualization" 
+                  className="w-full h-auto max-h-[65vh] object-contain scale-[1.15] hover:scale-[1.20] transition-transform duration-700 relative z-10"
+                />
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -186,16 +172,33 @@ export default function Home() {
       </section>
 
       {/* ENGINE-ROOM REFRAME */}
-      <section className="relative z-10 py-[60px] bg-gradient-to-b from-[#151A21] to-[#0E1116] border-y border-[#a5adb6]/20">
+{/* ENGINE-ROOM REFRAME */}
+      <section className="relative z-10 py-[100px] bg-gradient-to-b from-[#151A21] to-[#0E1116] border-y border-[#a5adb6]/20 overflow-hidden">
+        
+        {/* --- Repeating Vertical Texture Background --- */}
+        <div 
+          className="absolute inset-0 z-0 pointer-events-none opacity-[0.05]"
+          style={{
+            backgroundImage: "url('/images/home/Texture-01.svg')", // Update this if your vertical texture has a different name
+            backgroundRepeat: "repeat",
+            backgroundSize: "280px", // Adjust scale of the pattern here
+          }}
+        />
+        
+        {/* Seamless Fade Gradients to blend the texture perfectly into the dark background */}
+        <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-[#151A21] via-transparent via-15% to-transparent" />
+        <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-[#0E1116] via-transparent via-15% to-transparent" />
+
+        {/* --- Content --- */}
         <motion.div 
           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
-          className="max-w-[1160px] mx-auto px-6"
+          className="max-w-[1160px] mx-auto px-6 relative z-10"
         >
-          <motion.span variants={fadeUp} className="font-sans font-medium text-[12px] tracking-[0.18em] uppercase text-[#c39967] inline-flex items-center gap-[10px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-[#c39967] before:opacity-70">
+          <motion.span variants={fadeUp} className="font-sans font-medium text-[12px] tracking-[0.18em] uppercase text-[#c39967] inline-flex items-center gap-[10px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-[#c39967] before:opacity-70 drop-shadow-md">
             The Positioning
           </motion.span>
           
-          <motion.p variants={fadeUp} className="font-sans text-[clamp(22px,3vw,30px)] font-normal leading-[1.4] max-w-[1080px] tracking-[-0.01em] mt-[22px]">
+          <motion.p variants={fadeUp} className="font-sans text-[clamp(24px,3.5vw,36px)] font-normal leading-[1.4] max-w-[1080px] tracking-[-0.01em] mt-[24px]">
             <b className="text-[#c39967] font-semibold drop-shadow-[0_0_10px_rgba(195,153,103,0.3)]">BricketX Pakistan is the operational backbone of the BricketX network</b> — the Karachi engine room that builds the technology, runs the operations, and produces the work behind a Shariah-compliant investment platform operating across the UK/BVI, Dubai, Kenya and Pakistan.
           </motion.p>
         </motion.div>
@@ -297,9 +300,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* THE COMPANY */}
-      <section id="company" className="relative z-10 py-[60px]">
-        <div className="max-w-[1160px] mx-auto px-6">
+{/* THE COMPANY */}
+      <section id="company" className="relative z-10 py-[80px] bg-[#0E1116] overflow-hidden border-y border-[#a5adb6]/10">
+        
+        {/* --- Repeating Texture Background --- */}
+        <div 
+          className="absolute inset-0 z-0 pointer-events-none opacity-[0.04]"
+          style={{
+            backgroundImage: "url('/images/home/Texture-01.svg')", // Ensure your texture image is saved here
+            backgroundRepeat: "repeat",
+            backgroundSize: "280px", // Adjust this to scale the cubes up or down
+          }}
+        />
+        
+        {/* Seamless Fade Gradients to blend the texture perfectly into the dark background */}
+        <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-[#0E1116] via-transparent via-20% to-transparent" />
+        <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-[#0E1116] via-transparent via-20% to-transparent" />
+        
+        {/* --- Content --- */}
+        <div className="max-w-[1160px] mx-auto px-6 relative z-10">
           <motion.div 
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
             className="max-w-[640px] mb-[44px]"
@@ -308,7 +327,7 @@ export default function Home() {
               The Company
             </motion.span>
             <motion.h2 variants={fadeUp} className="font-sans font-semibold text-[clamp(30px,4vw,44px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]">
-              The engine behind <span className="text-[#c39967]">the network</span>
+              The engine behind <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.2)]">the network</span>
             </motion.h2>
             <motion.p variants={fadeUp} className="text-[#a5adb6] text-[17px]">How BricketX is structured, how it operates, and where it's headed.</motion.p>
           </motion.div>
@@ -323,11 +342,13 @@ export default function Home() {
               { title: 'Global Operations', desc: 'Who does what across UK/BVI, Dubai, Kenya and Pakistan.' },
               { title: 'Innovation Lab', desc: 'Where new products and AI experiments begin.' }
             ].map((co, i) => (
-              <motion.a key={i} variants={fadeUp} href="#" className="block bg-[#151A21] border border-[#a5adb6]/20 rounded-[14px] p-[26px_22px] transition-all duration-300 hover:border-[#c39967] hover:-translate-y-[4px] hover:shadow-[0_10px_30px_rgba(195,153,103,0.15)] group relative overflow-hidden">
+              <motion.a key={i} variants={fadeUp} href="#" className="block bg-[#151A21]/80 backdrop-blur-sm border border-[#a5adb6]/20 rounded-[14px] p-[26px_22px] transition-all duration-300 hover:border-[#c39967] hover:-translate-y-[4px] hover:bg-[#151A21] hover:shadow-[0_10px_30px_rgba(195,153,103,0.15)] group relative overflow-hidden">
+                {/* Subtle Hover Glow inside card */}
                 <div className="absolute top-0 right-0 w-[50px] h-[50px] bg-gradient-to-bl from-[#c39967]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-bl-full" />
-                <h3 className="font-sans font-semibold text-[19px] mb-[9px] group-hover:text-[#c39967] transition-colors">{co.title}</h3>
-                <p className="text-[#a5adb6] text-[14px] group-hover:text-[#ffffff] transition-colors">{co.desc}</p>
-                <div className="mt-[16px] font-sans font-medium text-[12px] text-[#c39967] opacity-0 transition-all duration-300 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0">Explore &rarr;</div>
+                
+                <h3 className="font-sans font-semibold text-[19px] mb-[9px] group-hover:text-[#c39967] transition-colors relative z-10">{co.title}</h3>
+                <p className="text-[#a5adb6] text-[14px] group-hover:text-[#ffffff] transition-colors relative z-10">{co.desc}</p>
+                <div className="mt-[16px] font-sans font-medium text-[12px] text-[#c39967] opacity-0 transition-all duration-300 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 relative z-10">Explore &rarr;</div>
               </motion.a>
             ))}
           </motion.div>
@@ -335,42 +356,71 @@ export default function Home() {
       </section>
 
       {/* GLOBAL OPERATIONS */}
-      <section className="relative z-10 py-[60px] bg-[#151A21] border-y border-[#a5adb6]/20">
-        <div className="max-w-[1160px] mx-auto px-6">
+      <section className="relative z-10 py-[80px] border-y border-[#a5adb6]/20 bg-[#151A21] overflow-hidden">
+        
+        {/* --- Background Image & Blending --- */}
+        <div 
+          className="absolute inset-0 z-0 opacity-100 mix-blend-screen pointer-events-none"
+          style={{
+            backgroundImage: "url('/images/home/network.png')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        
+        {/* Subtle Top & Bottom Edge Fades (Blends into surrounding sections without hiding the center) */}
+        <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-[#151A21] via-transparent via-20% to-transparent" />
+        <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-[#151A21] via-transparent via-20% to-transparent" />
+        
+        {/* --- Content --- */}
+        <div className="max-w-[1160px] mx-auto px-6 relative z-10">
           <motion.div 
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
             className="max-w-[640px] mb-[44px]"
           >
-            <motion.span variants={fadeUp} className="font-sans font-medium text-[12px] tracking-[0.18em] uppercase text-[#c39967] inline-flex items-center gap-[10px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-[#c39967] before:opacity-70">
+            <motion.span variants={fadeUp} className="font-sans font-medium text-[12px] tracking-[0.18em] uppercase text-[#c39967] inline-flex items-center gap-[10px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-[#c39967] before:opacity-70 drop-shadow-md">
               Global Operations
             </motion.span>
             <motion.h2 variants={fadeUp} className="font-sans font-semibold text-[clamp(30px,4vw,44px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]">
-              One network. <span className="text-[#c39967]">Four regions.</span>
+              One network. <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.3)]">Four regions.</span>
             </motion.h2>
           </motion.div>
           
+          {/* Glassmorphism Grid Container */}
           <motion.div 
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[#a5adb6]/20 border border-[#a5adb6]/20 rounded-[14px] overflow-hidden mt-[8px] hover:border-[#c39967]/30 transition-colors"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[#a5adb6]/20 border border-[#c39967]/30 rounded-[14px] overflow-hidden mt-[8px] hover:border-[#c39967]/50 transition-colors backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
           >
             {[
-              { region: 'Pakistan', role: 'Operations & Execution', desc: 'The Karachi hub — where it\'s built.' },
-              { region: 'Dubai', role: 'Management', desc: 'Regional leadership & investor relations.' },
-              { region: 'Kenya', role: 'Mining', desc: 'On-the-ground production & sourcing.' },
-              { region: 'UK / BVI', role: 'Corporate Structure', desc: 'Holdings & governance.' }
+              { region: 'Pakistan', flag: '/images/flags/pakistan.png', role: 'Operations & Execution', desc: 'The Karachi hub — where it\'s built.' },
+              { region: 'Dubai', flag: '/images/flags/uae.png', role: 'Management', desc: 'Regional leadership & investor relations.' },
+              { region: 'Kenya', flag: '/images/flags/kenya.png', role: 'Mining', desc: 'On-the-ground production & sourcing.' },
+              { region: 'UK / BVI', flag: '/images/flags/united-kingdom.png', role: 'Corporate Structure', desc: 'Holdings & governance.' }
             ].map((loc, i) => (
-              <motion.div key={i} variants={fadeUp} className="bg-[#0E1116] p-[30px_24px] hover:bg-[#0E1116]/60 transition-colors group cursor-pointer">
-                <h3 className="font-sans font-semibold text-[20px] flex items-center group-hover:text-[#ffffff] transition-colors">
-                  <span className="w-[8px] h-[8px] rounded-full bg-[#c39967] inline-block mr-[8px] shadow-[0_0_0_3px_rgba(195,153,103,0.12)] group-hover:shadow-[0_0_8px_rgba(195,153,103,0.6)] transition-shadow" />
+              <motion.div key={i} variants={fadeUp} className="bg-[#0E1116]/70 p-[30px_24px] hover:bg-[#151A21]/80 transition-colors group cursor-pointer relative overflow-hidden">
+                {/* Subtle Hover Glow Effect inside the card */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#c39967]/0 via-[#c39967]/0 to-[#c39967]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <h3 className="font-sans font-semibold text-[20px] flex items-center gap-[14px] group-hover:text-[#ffffff] transition-colors relative z-10">
+                  {/* Premium Flag Wrapper - slightly enlarged to 34x24 */}
+                  <div className="relative w-[34px] h-[24px] rounded-[4px] overflow-hidden border border-[#a5adb6]/30 group-hover:border-[#c39967]/80 shadow-[0_2px_8px_rgba(0,0,0,0.4)] group-hover:shadow-[0_0_12px_rgba(195,153,103,0.5)] transition-all duration-300 flex-shrink-0">
+                    <img 
+                      src={loc.flag} 
+                      alt={`${loc.region} Flag`} 
+                      className="w-full h-full object-cover scale-[1.05]"
+                    />
+                  </div>
                   {loc.region}
                 </h3>
-                <div className="font-sans font-medium text-[12px] tracking-[0.06em] uppercase text-[#c39967] mt-[10px]">{loc.role}</div>
-                <div className="text-[#a5adb6] text-[14px] mt-[6px] group-hover:text-[#ffffff] transition-colors">{loc.desc}</div>
+                <div className="font-sans font-medium text-[12px] tracking-[0.06em] uppercase text-[#c39967] mt-[14px] relative z-10">{loc.role}</div>
+                <div className="text-[#a5adb6] text-[14px] mt-[6px] group-hover:text-[#ffffff] transition-colors relative z-10">{loc.desc}</div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
+
+
 
       {/* CULTURE & CAREERS */}
       <section id="culture" className="relative z-10 py-[60px]">
