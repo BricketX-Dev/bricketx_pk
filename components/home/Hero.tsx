@@ -77,7 +77,7 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-tr from-[#c39967]/10 to-transparent blur-[90px] rounded-full scale-75 pointer-events-none" />
               
               <img 
-                src="/images/home/hero.png" 
+                src="/images/home/hero1.png" 
                 alt="BricketX Hub Visualization" 
                 className="w-full h-auto max-h-[65vh] object-contain scale-[1.15] hover:scale-[1.20] transition-transform duration-700 relative z-10"
               />
