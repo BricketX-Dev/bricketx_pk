@@ -16,7 +16,7 @@ export default function Company() {
       <div 
         className="absolute inset-0 z-0 pointer-events-none opacity-[0.04]"
         style={{
-          backgroundImage: "url('/images/home/Texture-01.svg')", 
+          backgroundImage: "url('/images/home/Texture-02.svg')", 
           backgroundRepeat: "repeat",
           backgroundSize: "280px", 
         }}
