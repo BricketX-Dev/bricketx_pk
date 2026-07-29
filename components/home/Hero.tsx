@@ -9,20 +9,20 @@ const slideInLeftContainer: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,  // Slightly increased for a more deliberate pace (was 0.15)
-      delayChildren: 0.15,   // Initial delay before the sequence starts
+      staggerChildren: 0.2, 
+      delayChildren: 0.15,
     },
   },
 };
 
 const slideInLeftItem: Variants = {
-  hidden: { opacity: 0, x: -40 }, // Reduced distance for a softer, more subtle drift (was -60)
+  hidden: { opacity: 0, x: -40 },
   visible: {
     opacity: 1,
     x: 0, 
     transition: { 
-      duration: 1.2, // Increased duration for a slower, smoother fade (was 0.9)
-      ease: [0.22, 1, 0.36, 1] // Apple-style smooth easing curve
+      duration: 1.2,
+      ease: [0.22, 1, 0.36, 1] 
     },
   },
 };
@@ -80,8 +80,8 @@ export default function Hero() {
           <motion.div 
             initial={{ opacity: 0, scale: 0.85, filter: "blur(10px)" }}
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.3 }} // Synced with slower text
-            className="relative w-full max-w-[420px] md:max-w-[520px] xl:max-w-[620px] mx-auto order-first md:order-last flex justify-center items-center" 
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+            className="relative w-full max-w-[500px] md:max-w-[600px] xl:max-w-[750px] mx-auto order-first md:order-last flex justify-center items-center" 
             aria-hidden="true"
           >
             <motion.div
@@ -129,7 +129,8 @@ export default function Hero() {
               <img 
                 src="/images/home/hero1.png" 
                 alt="BricketX Hub Visualization" 
-                className="w-full h-auto max-h-[65vh] object-contain scale-[1.10] relative z-10"
+                // 👇 Changed scale to 1.40 and max-h to 80vh
+                className="w-full h-auto max-h-[80vh] object-contain scale-[1.40] relative z-10"
               />
             </motion.div>
           </motion.div>
