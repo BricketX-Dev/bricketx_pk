@@ -24,8 +24,8 @@ export default function DepartmentsHero() {
             variants={fadeUp}
             className="font-sans font-semibold text-[clamp(40px,5vw,60px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]"
           >
-            Five teams. <br />
-            One <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.3)]">engine room.</span>
+            Five teams <br />
+            One <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.3)]">engine room</span>
           </motion.h1>
 
           <motion.p
