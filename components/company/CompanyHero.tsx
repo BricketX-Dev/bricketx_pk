@@ -1,41 +1,39 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
-
+import { fadeUp, staggerContainer } from "@/lib/animations";
 export default function CompanyHero() {
   return (
     <section className="relative z-10 pt-10 pb-8 md:pt-16 md:pb-12">
       <div className="max-w-[1160px] mx-auto px-6">
-        {/* Breadcrumb */}
-        <nav className="font-mono text-xs text-[#5C6577] tracking-wider mb-8">
-          <Link href="/" className="hover:text-[#C6A067] transition-colors">
-            Home
-          </Link>{" "}
-          / <span className="text-[#C6A067]">The Company</span>
-        </nav>
-
-        {/* Hero Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+          className="max-w-[640px]"
         >
-          <div className="font-mono text-xs uppercase tracking-[0.18em] text-[#C6A067] flex items-center gap-2.5">
-            <span className="w-[22px] h-[1px] bg-[#C6A067] opacity-70"></span>
+          <motion.span
+            variants={fadeUp}
+            className="font-sans font-medium text-[12px] tracking-[0.18em] uppercase text-[#c39967] inline-flex items-center gap-[10px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-[#c39967] before:opacity-70"
+          >
             The Company
-          </div>
+          </motion.span>
 
-          <h1 className="font-sans font-semibold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-[1.1] text-[#E7EAF0] mt-5">
-            The engine behind
-            <br />
-            the <span className="text-[#C6A067]">network</span>
-          </h1>
+          <motion.h1
+            variants={fadeUp}
+            className="font-sans font-semibold text-[clamp(40px,5vw,60px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]"
+          >
+            The engine behind <br />
+            the <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.3)]">network</span>
+          </motion.h1>
 
-          <p className="font-sans text-lg sm:text-xl text-[#8B95A6] max-w-[640px] mt-5 leading-relaxed">
+          <motion.p
+            variants={fadeUp}
+            className="text-[#a5adb6] text-[17px] lg:text-[19px] mt-[20px]"
+          >
             BricketX Pakistan is the operational core of a network that spans four regions. Here's how it's structured, how it operates, and where its next ideas come from.
-          </p>
+          </motion.p>
         </motion.div>
       </div>
     </section>

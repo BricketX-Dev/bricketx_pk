@@ -50,7 +50,7 @@ export default function CorporateStructure() {
             The Structure
           </span>
           <h2 className="font-sans font-semibold text-3xl sm:text-4xl text-[#E7EAF0] mt-3.5 mb-3">
-            One network. Four regions.
+            One network - Four regions
           </h2>
           <p className="font-sans text-base sm:text-lg text-[#8B95A6]">
             Each region owns a distinct role - and every one connects back to the Karachi hub, where the network is built and run.
