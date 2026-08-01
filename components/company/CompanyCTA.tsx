@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default function BuildCTA() {
+export default function CompanyCTA() {
   return (
     <section id="contact" className="relative z-10 py-[80px] text-center overflow-hidden border-t border-[#a5adb6]/20 bg-[#151A21]">
       {/* Radial Glow Backdrop */}
@@ -18,15 +18,15 @@ export default function BuildCTA() {
         className="max-w-[1160px] mx-auto px-6 relative z-10"
       >
         <span className="font-sans font-medium text-[12px] tracking-[0.18em] uppercase text-[#c39967] inline-flex items-center gap-[10px] justify-center before:content-[''] before:w-[22px] before:h-[1px] before:bg-[#c39967] before:opacity-70">
-          Build With The Hub
+          Get Closer
         </span>
 
         <h2 className="font-sans font-semibold text-[clamp(32px,5vw,52px)] mb-[18px] mt-[16px]">
-          Systems that run <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.4)]">the network</span>
+          See how <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.4)]">the network runs</span>
         </h2>
 
         <p className="text-[#a5adb6] text-[18px] max-w-[520px] mx-auto mb-[34px]">
-          See how the BricketX hub can build and run the infrastructure behind your ecosystem
+          Explore the departments and systems behind BricketX - or get in touch with the hub
         </p>
 
         <div className="flex flex-wrap gap-[14px] justify-center">
