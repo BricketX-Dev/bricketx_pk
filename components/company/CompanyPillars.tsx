@@ -4,11 +4,12 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer } from "@/lib/animations";
+
 const pillarsData = [
-  { idx: "01", title: "Our Ecosystem", description: "How BricketX's entities, regions and verticals connect into one network - from corporate structure to on-the-ground production.", link: "/our-ecosystem" },
-  { idx: "02", title: "How We Operate", description: "The disciplined idea-to-scale process the hub runs on every project - research, design, build, automate, ship.", link: "/how-we-operate" },
-  { idx: "03", title: "Global Operations", description: "Who does what across the network's four regions - the UK/BVI, Dubai, Kenya and Pakistan - and how they stay coordinated.", link: "/global-operations" },
-  { idx: "04", title: "Innovation Lab", description: "Where new products, AI experiments and process improvements begin - and get tested before they reach the network.", link: "/innovation-lab" },
+  { idx: "01", title: "Our Ecosystem", description: "How BricketX's entities, regions and verticals connect into one network - from corporate structure to on-the-ground production.", link: "#" },
+  { idx: "02", title: "How We Operate", description: "The disciplined idea-to-scale process the hub runs on every project - research, design, build, automate, ship.", link: "#" },
+  { idx: "03", title: "Global Operations", description: "Who does what across the network's four regions - the UK/BVI, Dubai, Kenya and Pakistan - and how they stay coordinated.", link: "#" },
+  { idx: "04", title: "Innovation Lab", description: "Where new products, AI experiments and process improvements begin - and get tested before they reach the network.", link: "#" },
 ];
 
 export default function CompanyPillars() {
