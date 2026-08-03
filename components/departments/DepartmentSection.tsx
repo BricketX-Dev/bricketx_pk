@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer } from "@/lib/animations";
+
 interface Capability {
   title: string;
   description: string;
@@ -53,7 +54,7 @@ export default function DepartmentSection({
 
             <motion.div variants={fadeUp}>
               <Link
-                href={viewLink}
+                href="#"
                 className="font-sans font-medium text-[13px] text-[#c39967] border border-[#a5adb6]/30 rounded-[10px] px-[16px] py-[10px] hover:border-[#c39967] hover:bg-[#c39967]/10 transition-all duration-300 whitespace-nowrap self-start inline-block"
               >
                 View department &rarr;
@@ -65,7 +66,7 @@ export default function DepartmentSection({
             {capabilities.map((cap) => (
               <motion.div key={cap.title} variants={fadeUp}>
                 <Link
-                  href={cap.link}
+                  href="#"
                   className="block h-full bg-[#151A21]/80 backdrop-blur-sm border border-[#a5adb6]/20 rounded-[14px] p-[24px_20px] transition-all duration-300 hover:border-[#c39967] hover:-translate-y-[4px] hover:bg-[#151A21] hover:shadow-[0_10px_30px_rgba(195,153,103,0.15)] group relative overflow-hidden flex flex-col justify-between"
                 >
                   <div className="absolute top-0 right-0 w-[50px] h-[50px] bg-gradient-to-bl from-[#c39967]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-bl-full" />
