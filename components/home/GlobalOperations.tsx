@@ -36,7 +36,7 @@ export default function GlobalOperations() {
   return (
     <section className="relative z-10 py-[80px] border-y border-[#a5adb6]/20 bg-[#151A21] overflow-hidden">
       
-      {/* --- UPDATED: Background Image Zoom Animation --- */}
+      {/* --- UPDATED: Background Image Zoom Animation --- */}awa
       <motion.div 
         animate={{ scale: [1, 1.1, 1] }}
         transition={{
@@ -51,21 +51,17 @@ export default function GlobalOperations() {
           backgroundPosition: 'center',
         }}
       />
-      {/* ---------------------------------------------- */}
 
-      {/* --- UPDATED: Background Shine Animation Slower --- */}
       <motion.div
         animate={{ left: ["-100%", "200%"] }}
         transition={{ 
           repeat: Infinity, 
-          duration: 8, // Increased from 4 to 8 for a slower, smoother sweep
+          duration: 8, 
           ease: "linear", 
-          repeatDelay: 5 // Increased delay before it triggers again
+          repeatDelay: 5 
         }}
         className="absolute inset-y-0 z-0 w-1/2 md:w-1/3 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 pointer-events-none"
       />
-      {/* ------------------------------------------------ */}
-      
       {/* Fade Gradients */}
       <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-[#151A21] via-transparent via-20% to-transparent" />
       <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-[#151A21] via-transparent via-20% to-transparent" />

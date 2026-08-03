@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 
 import BuildHero from "@/components/build/BuildHero";
 import SystemsGrid from "@/components/build/SystemsGrid";
@@ -31,21 +29,12 @@ export const metadata: Metadata = {
 
 export default function WhatWeBuildPage() {
   return (
-    <div className="relative min-h-screen bg-[#0E1116] text-[#ffffff] font-sans overflow-x-hidden antialiased selection:bg-[#c39967] selection:text-[#212121]">
-      <Navbar />
-
-      <main className="relative">
-        {/* Subtle Background Grid Pattern matching your theme */}
-        <div className="fixed inset-0 z-0 pointer-events-none opacity-50 bg-[linear-gradient(to_right,#252D38_1px,transparent_1px),linear-gradient(to_bottom,#252D38_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_55%_at_50%_0%,#000_30%,transparent_75%)]" />
-
-        <BuildHero />
-        <SystemsGrid />
-        <BuildLifecycle />
-        <BuildFaq />
-        <BuildCTA />
-      </main>
-
-      <Footer />
-    </div>
+    <>
+      <BuildHero />
+      <SystemsGrid />
+      <BuildLifecycle />
+      <BuildFaq />
+      <BuildCTA />
+    </>
   );
 }
