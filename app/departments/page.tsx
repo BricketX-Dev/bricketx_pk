@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 
 import DepartmentsHero from "@/components/departments/DepartmentsHero";
 import JumpNav from "@/components/departments/JumpNav";
@@ -104,34 +102,25 @@ export default function DepartmentsPage() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#0E1116] text-[#ffffff] font-sans overflow-x-hidden antialiased selection:bg-[#c39967] selection:text-[#212121]">
-      <Navbar />
+    <>
+      <DepartmentsHero />
+      <JumpNav activeId={activeId} />
 
-      <main className="relative">
-        {/* Ambient Grid Pattern */}
-        <div className="fixed inset-0 z-0 pointer-events-none opacity-50 bg-[linear-gradient(to_right,#252D38_1px,transparent_1px),linear-gradient(to_bottom,#252D38_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_55%_at_50%_0%,#000_30%,transparent_75%)]" />
+      {departmentsData.map((dept) => (
+        <DepartmentSection
+          key={dept.id}
+          id={dept.id}
+          idx={dept.idx}
+          title={dept.title}
+          lead={dept.lead}
+          viewLink={dept.viewLink}
+          capabilities={dept.capabilities}
+        />
+      ))}
 
-        <DepartmentsHero />
-        <JumpNav activeId={activeId} />
-
-        {departmentsData.map((dept) => (
-          <DepartmentSection
-            key={dept.id}
-            id={dept.id}
-            idx={dept.idx}
-            title={dept.title}
-            lead={dept.lead}
-            viewLink={dept.viewLink}
-            capabilities={dept.capabilities}
-          />
-        ))}
-
-        <PipelineFlow />
-        <DepartmentsFaq />
-        <DepartmentsCTA />
-      </main>
-
-      <Footer />
-    </div>
+      <PipelineFlow />
+      <DepartmentsFaq />
+      <DepartmentsCTA />
+    </>
   );
 }
