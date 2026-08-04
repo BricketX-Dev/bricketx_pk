@@ -3,13 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const flowSteps = [
-  { n: "01", title: "Research", text: "Production frames the problem." },
-  { n: "02", title: "Design", text: "Creative shapes the experience." },
-  { n: "03", title: "Build", text: "Technology engineers it." },
-  { n: "04", title: "Launch", text: "Marketing takes it to market." },
-  { n: "05", title: "Run", text: "Operations scales and reports." },
-];
+// If you are using Next.js, you can import Image from "next/image" for better optimization
+// import Image from "next/image";
 
 export default function PipelineFlow() {
   return (
@@ -34,32 +29,41 @@ export default function PipelineFlow() {
           </p>
         </motion.div>
 
-        {/* Pipeline Steps Grid */}
+        {/* Enhanced Pipeline Image Container */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-5 gap-[1px] bg-[#252D38] border border-[#252D38] rounded-xl overflow-hidden"
+          // 1. Framer motion hover effects for the container
+          whileHover={{
+            scale: 1.02,
+            boxShadow: "0 0 80px rgba(198,160,103,0.25)",
+            borderColor: "rgba(198,160,103,0.7)",
+          }}
+          transition={{
+            duration: 0.6,
+            delay: 0.2,
+            scale: { duration: 0.4, ease: "easeOut" },
+            boxShadow: { duration: 0.4, ease: "easeOut" },
+          }}
+          // Adjusted padding: Extremely tight vertical spacing (py-2 & sm:py-2)
+          className="group relative w-full flex items-center justify-center px-8 py-2 sm:px-14 sm:py-2 rounded-2xl bg-gradient-to-br from-[#1C2128] via-[#11141A] to-[#0A0C0F] border border-[#C6A067]/40 shadow-[0_0_45px_rgba(198,160,103,0.12)] ring-1 ring-inset ring-black/60 overflow-hidden cursor-pointer"
         >
-          {flowSteps.map((step, idx) => (
-            <div
-              key={step.n}
-              className={`bg-[#0E1116] p-6 text-center ${
-                idx === flowSteps.length - 1 ? "col-span-2 md:col-span-1" : ""
-              }`}
-            >
-              <div className="font-mono text-xs text-[#C6A067] tracking-wider">
-                {step.n}
-              </div>
-              <h4 className="font-sans font-medium text-base text-[#E7EAF0] mt-2">
-                {step.title}
-              </h4>
-              <p className="font-sans text-xs text-[#8B95A6] mt-1.5 leading-relaxed">
-                {step.text}
-              </p>
-            </div>
-          ))}
+          {/* Subtle Inner Border that brightens on hover */}
+          <div className="absolute inset-0 rounded-2xl border border-[#C6A067]/10 pointer-events-none transition-colors duration-500 group-hover:border-[#C6A067]/30"></div>
+
+          {/* 2. Sweeping Shine Effect (Tailwind transition) - SLOWED DOWN */}
+          {/* Changed duration-[1.2s] to duration-[2.5s] */}
+          <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-[#C6A067]/15 to-transparent group-hover:translate-x-[150%] transition-transform duration-[2.5s] ease-in-out pointer-events-none"></div>
+
+          {/* 3. Changed to motion.img for independent scale to create a 3D parallax feel */}
+          <motion.img
+            whileHover={{ scale: 1.04 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            src="/images/department/five-departments-one-pipeline.png"
+            alt="Pipeline Flow across Five Departments"
+            className="w-full max-w-[920px] h-auto object-contain relative z-10 drop-shadow-2xl"
+          />
         </motion.div>
       </div>
     </section>
