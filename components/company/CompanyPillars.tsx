@@ -35,10 +35,10 @@ export default function CompanyPillars() {
                   <span className="font-sans font-medium text-[12px] text-[#c39967] tracking-[0.1em]">
                     {item.idx}
                   </span>
-                  <h2 className="font-sans font-semibold text-[24px] mt-[10px] mb-[10px] group-hover:text-[#c39967] transition-colors relative z-10">
+                  <h2 className="font-heading font-semibold text-[24px] mt-[10px] mb-[10px] group-hover:text-[#c39967] transition-colors relative z-10">
                     {item.title}
                   </h2>
-                  <p className="text-[#a5adb6] text-[15px] group-hover:text-[#ffffff] transition-colors relative z-10">
+                  <p className="font-sans text-[#a5adb6] text-[15px] group-hover:text-[#ffffff] transition-colors relative z-10">
                     {item.description}
                   </p>
                 </div>

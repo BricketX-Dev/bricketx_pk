@@ -28,7 +28,7 @@ export default function Faq() {
           <motion.span variants={fadeUp} className="font-sans font-medium text-[12px] tracking-[0.18em] uppercase text-[#c39967] inline-flex items-center gap-[10px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-[#c39967] before:opacity-70">
             Common Questions
           </motion.span>
-          <motion.h2 variants={fadeUp} className="font-sans font-semibold text-[clamp(30px,4vw,44px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]">
+          <motion.h2 variants={fadeUp} className="font-heading font-semibold text-[clamp(30px,4vw,44px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]">
             Frequently <span className="text-[#c39967]">asked</span>
           </motion.h2>
         </motion.div>

@@ -30,7 +30,7 @@ export default function WhatWeBuild() {
           <motion.span variants={fadeUp} className="font-sans font-medium text-[12px] tracking-[0.18em] uppercase text-[#c39967] inline-flex items-center gap-[10px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-[#c39967] before:opacity-70">
             What We Build
           </motion.span>
-          <motion.h2 variants={fadeUp} className="font-sans font-semibold text-[clamp(30px,4vw,44px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]">
+          <motion.h2 variants={fadeUp} className="font-heading font-semibold text-[clamp(30px,4vw,44px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]">
             Not services <span className="text-[#c39967]">Systems</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="text-[#a5adb6] text-[17px]">The infrastructure that runs the BricketX ecosystem end to end.</motion.p>
@@ -45,7 +45,7 @@ export default function WhatWeBuild() {
         >
           {items.map((item, i) => (
             <motion.div key={i} variants={fadeUp} className="bg-[#0E1116] p-[24px_26px] transition-all duration-300 hover:bg-[#0E1116]/60 hover:pl-[34px] border-l-4 border-transparent hover:border-[#c39967] cursor-pointer group">
-              <h3 className="font-sans font-semibold text-[18px] flex items-center gap-[11px] group-hover:text-[#c39967] transition-colors">
+              <h3 className="font-heading font-semibold text-[18px] flex items-center gap-[11px] group-hover:text-[#c39967] transition-colors">
                 <i className="w-[6px] h-[6px] bg-[#c39967] rounded-full shrink-0 group-hover:scale-150 transition-transform" />
                 {item.title}
               </h3>

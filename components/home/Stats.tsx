@@ -24,7 +24,7 @@ export default function Stats() {
         >
           {stats.map((stat, i) => (
             <motion.div key={i} variants={fadeUp} className={`bg-[#0E1116] py-[30px] px-[22px] text-center hover:bg-[#0E1116]/80 transition-colors duration-300 ${stat.colSpan || ''}`}>
-              <div className="font-sans text-[38px] font-semibold text-[#ffffff] drop-shadow-md">
+              <div className="font-heading text-[38px] font-semibold text-[#ffffff] drop-shadow-md">
                 <b className="text-[#c39967] font-semibold">{stat.num}</b>{stat.suffix}
               </div>
               <div className="font-sans font-medium text-[11px] tracking-[0.08em] uppercase text-[#a5adb6] mt-[8px] group-hover:text-[#ffffff] transition-colors">{stat.label}</div>

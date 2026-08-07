@@ -36,7 +36,7 @@ export default function Company() {
           <motion.span variants={fadeUp} className="font-sans font-medium text-[12px] tracking-[0.18em] uppercase text-[#c39967] inline-flex items-center gap-[10px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-[#c39967] before:opacity-70">
             The Company
           </motion.span>
-          <motion.h2 variants={fadeUp} className="font-sans font-semibold text-[clamp(30px,4vw,44px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]">
+          <motion.h2 variants={fadeUp} className="font-heading font-semibold text-[clamp(30px,4vw,44px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]">
             The engine behind <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.2)]">the network</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="text-[#a5adb6] text-[17px]">How BricketX is structured, how it operates, and where it's headed.</motion.p>
@@ -52,7 +52,7 @@ export default function Company() {
           {companies.map((co, i) => (
             <motion.a key={i} variants={fadeUp} href="#" className="block bg-[#151A21]/80 backdrop-blur-sm border border-[#a5adb6]/20 rounded-[14px] p-[26px_22px] transition-all duration-300 hover:border-[#c39967] hover:-translate-y-[4px] hover:bg-[#151A21] hover:shadow-[0_10px_30px_rgba(195,153,103,0.15)] group relative overflow-hidden">
               <div className="absolute top-0 right-0 w-[50px] h-[50px] bg-gradient-to-bl from-[#c39967]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-bl-full" />
-              <h3 className="font-sans font-semibold text-[19px] mb-[9px] group-hover:text-[#c39967] transition-colors relative z-10">{co.title}</h3>
+              <h3 className="font-heading font-semibold text-[19px] mb-[9px] group-hover:text-[#c39967] transition-colors relative z-10">{co.title}</h3>
               <p className="text-[#a5adb6] text-[14px] group-hover:text-[#ffffff] transition-colors relative z-10">{co.desc}</p>
               <div className="mt-[16px] font-sans font-medium text-[12px] text-[#c39967] opacity-0 transition-all duration-300 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 relative z-10">Explore &rarr;</div>
             </motion.a>

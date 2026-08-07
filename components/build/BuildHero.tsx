@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer } from "@/lib/animations";
+
 export default function BuildHero() {
   return (
     <section className="relative z-10 pt-10 pb-8 md:pt-16 md:pb-12">
@@ -22,7 +23,7 @@ export default function BuildHero() {
 
           <motion.h1
             variants={fadeUp}
-            className="font-sans font-semibold text-[clamp(40px,5vw,60px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]"
+            className="font-heading font-semibold text-[clamp(40px,5vw,60px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]"
           >
             Not services
             <br />
@@ -33,7 +34,7 @@ export default function BuildHero() {
 
           <motion.p
             variants={fadeUp}
-            className="text-[#a5adb6] text-[17px] lg:text-[19px] mt-[20px]"
+            className="font-sans text-[#a5adb6] text-[17px] lg:text-[19px] mt-[20px]"
           >
             BricketX Pakistan doesn't ship one-off deliverables. It builds and runs
             the infrastructure that keeps the entire BricketX network moving —

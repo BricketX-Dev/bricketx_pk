@@ -43,10 +43,10 @@ export default function DepartmentSection({
                 {idx}
               </span>
               <div>
-                <h2 className="font-sans font-semibold text-[clamp(28px,4vw,36px)] leading-[1.1]">
+                <h2 className="font-heading font-semibold text-[clamp(28px,4vw,36px)] leading-[1.1]">
                   {title}
                 </h2>
-                <p className="text-[#a5adb6] text-[16px] mt-[10px] max-w-[640px]">
+                <p className="font-sans text-[#a5adb6] text-[16px] mt-[10px] max-w-[640px]">
                   {lead}
                 </p>
               </div>
@@ -72,10 +72,10 @@ export default function DepartmentSection({
                   <div className="absolute top-0 right-0 w-[50px] h-[50px] bg-gradient-to-bl from-[#c39967]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-bl-full" />
                   
                   <div>
-                    <h3 className="font-sans font-semibold text-[18px] mb-[8px] group-hover:text-[#c39967] transition-colors relative z-10">
+                    <h3 className="font-heading font-semibold text-[18px] mb-[8px] group-hover:text-[#c39967] transition-colors relative z-10">
                       {cap.title}
                     </h3>
-                    <p className="text-[#a5adb6] text-[14px] group-hover:text-[#ffffff] transition-colors relative z-10">
+                    <p className="font-sans text-[#a5adb6] text-[14px] group-hover:text-[#ffffff] transition-colors relative z-10">
                       {cap.description}
                     </p>
                   </div>

@@ -24,7 +24,7 @@ export default function Departments() {
           <motion.span variants={fadeUp} className="font-sans font-medium text-[12px] tracking-[0.18em] uppercase text-[#c39967] inline-flex items-center gap-[10px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-[#c39967] before:opacity-70">
             Our Departments
           </motion.span>
-          <motion.h2 variants={fadeUp} className="font-sans font-semibold text-[clamp(30px,4vw,44px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]">
+          <motion.h2 variants={fadeUp} className="font-heading font-semibold text-[clamp(30px,4vw,44px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]">
             Five teams <span className="text-[#c39967]">One engine room</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="text-[#a5adb6] text-[17px]">Every part of the BricketX ecosystem is built, run and scaled by a dedicated department in Karachi.</motion.p>
@@ -40,7 +40,7 @@ export default function Departments() {
           {depts.map((dept, i) => (
             <motion.div key={i} variants={fadeUp} className="bg-[#151A21] border border-[#a5adb6]/20 rounded-[14px] p-[28px] transition-all duration-300 hover:border-[#c39967] hover:bg-[#151A21]/80 hover:-translate-y-[4px] hover:shadow-[0_10px_30px_rgba(195,153,103,0.15)] group cursor-pointer">
               <span className="font-sans font-medium text-[12px] text-[#c39967] tracking-[0.1em]">{dept.id}</span>
-              <h3 className="font-sans font-semibold text-[23px] mt-[14px] mb-[8px] group-hover:text-[#c39967] transition-colors">{dept.title}</h3>
+              <h3 className="font-heading font-semibold text-[23px] mt-[14px] mb-[8px] group-hover:text-[#c39967] transition-colors">{dept.title}</h3>
               <p className="text-[#a5adb6] text-[15px] mb-[16px]">{dept.desc}</p>
               <div className="flex flex-wrap gap-[8px]">
                 {dept.chips.map((chip, j) => (
@@ -52,7 +52,7 @@ export default function Departments() {
           
           <motion.div variants={fadeUp} className="md:col-span-2 bg-[#151A21] border border-[#a5adb6]/20 rounded-[14px] p-[28px] transition-all duration-300 hover:border-[#c39967] hover:bg-[#151A21]/80 hover:-translate-y-[4px] hover:shadow-[0_10px_30px_rgba(195,153,103,0.15)] group cursor-pointer">
             <span className="font-sans font-medium text-[12px] text-[#c39967] tracking-[0.1em]">05</span>
-            <h3 className="font-sans font-semibold text-[23px] mt-[14px] mb-[8px] group-hover:text-[#c39967] transition-colors">Production</h3>
+            <h3 className="font-heading font-semibold text-[23px] mt-[14px] mb-[8px] group-hover:text-[#c39967] transition-colors">Production</h3>
             <p className="text-[#a5adb6] text-[15px] mb-[16px]">Research, process and coordination that turn ideas into shipped, scalable work across every region.</p>
             <div className="flex flex-wrap gap-[8px]">
               {['Research', 'Process Management', 'Training', 'Global Coordination'].map((chip, j) => (

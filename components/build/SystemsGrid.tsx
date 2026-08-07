@@ -41,10 +41,10 @@ export default function SystemsGrid() {
                   <span className="font-sans font-medium text-[12px] text-[#c39967] tracking-[0.1em]">
                     {item.idx}
                   </span>
-                  <h3 className="font-sans font-semibold text-[20px] mt-[8px] mb-[9px] group-hover:text-[#c39967] transition-colors relative z-10">
+                  <h3 className="font-heading font-semibold text-[20px] mt-[8px] mb-[9px] group-hover:text-[#c39967] transition-colors relative z-10">
                     {item.title}
                   </h3>
-                  <p className="text-[#a5adb6] text-[14px] group-hover:text-[#ffffff] transition-colors relative z-10">
+                  <p className="font-sans text-[#a5adb6] text-[14px] group-hover:text-[#ffffff] transition-colors relative z-10">
                     {item.description}
                   </p>
                 </div>

@@ -36,7 +36,7 @@ export default function GlobalOperations() {
   return (
     <section className="relative z-10 py-[80px] border-y border-[#a5adb6]/20 bg-[#151A21] overflow-hidden">
       
-      {/* --- UPDATED: Background Image Zoom Animation --- */}awa
+      {/* --- UPDATED: Background Image Zoom Animation --- */}
       <motion.div 
         animate={{ scale: [1, 1.1, 1] }}
         transition={{
@@ -93,7 +93,7 @@ export default function GlobalOperations() {
           </motion.span>
 
           {/* Main H2 - Character typing */}
-          <motion.h2 variants={fadeUp} className="font-sans font-semibold text-[clamp(30px,4vw,44px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]">
+          <motion.h2 variants={fadeUp} className="font-heading font-semibold text-[clamp(30px,4vw,44px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]">
             <motion.div
               variants={typewriterParent}
               initial="hidden"
@@ -129,7 +129,7 @@ export default function GlobalOperations() {
             <motion.div key={i} variants={fadeUp} className="bg-[#0E1116]/70 p-[30px_24px] hover:bg-[#151A21]/80 transition-colors group cursor-pointer relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-[#c39967]/0 via-[#c39967]/0 to-[#c39967]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <h3 className="font-sans font-semibold text-[20px] flex items-center gap-[14px] group-hover:text-[#ffffff] transition-colors relative z-10">
+              <h3 className="font-heading font-semibold text-[20px] flex items-center gap-[14px] group-hover:text-[#ffffff] transition-colors relative z-10">
                 <div className="relative w-[34px] h-[24px] rounded-[4px] overflow-hidden border border-[#a5adb6]/30 group-hover:border-[#c39967]/80 shadow-[0_2px_8px_rgba(0,0,0,0.4)] group-hover:shadow-[0_0_12px_rgba(195,153,103,0.5)] transition-all duration-300 flex-shrink-0">
                   <img src={loc.flag} alt={`${loc.region} Flag`} className="w-full h-full object-cover scale-[1.05]" />
                 </div>

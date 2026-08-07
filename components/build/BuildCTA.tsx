@@ -21,11 +21,11 @@ export default function BuildCTA() {
           Build With The Hub
         </span>
 
-        <h2 className="font-sans font-semibold text-[clamp(32px,5vw,52px)] mb-[18px] mt-[16px]">
+        <h2 className="font-heading font-semibold text-[clamp(32px,5vw,52px)] mb-[18px] mt-[16px]">
           Systems that run <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.4)]">the network</span>
         </h2>
 
-        <p className="text-[#a5adb6] text-[18px] max-w-[520px] mx-auto mb-[34px]">
+        <p className="font-sans text-[#a5adb6] text-[18px] max-w-[520px] mx-auto mb-[34px]">
           See how the BricketX hub can build and run the infrastructure behind your ecosystem
         </p>
 

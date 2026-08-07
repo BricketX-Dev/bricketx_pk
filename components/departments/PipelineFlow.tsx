@@ -17,11 +17,11 @@ export default function PipelineFlow() {
           transition={{ duration: 0.6 }}
           className="max-w-[640px] mb-10"
         >
-          <span className="font-mono text-xs uppercase tracking-[0.18em] text-[#C6A067] flex items-center gap-2.5">
+          <span className="font-sans font-medium text-[12px] uppercase tracking-[0.18em] text-[#C6A067] flex items-center gap-2.5">
             <span className="w-[22px] h-[1px] bg-[#C6A067] opacity-70"></span>
             How They Connect
           </span>
-          <h2 className="font-sans font-semibold text-3xl sm:text-4xl text-[#E7EAF0] mt-3.5 mb-3">
+          <h2 className="font-heading font-semibold text-3xl sm:text-4xl text-[#E7EAF0] mt-3.5 mb-3">
             Five departments, one pipeline
           </h2>
           <p className="font-sans text-base sm:text-lg text-[#8B95A6]">
