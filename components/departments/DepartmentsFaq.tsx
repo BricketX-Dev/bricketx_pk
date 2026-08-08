@@ -45,7 +45,7 @@ export default function DepartmentsFaq() {
             Common Questions
           </span>
           <h2 className="font-heading font-semibold text-3xl sm:text-4xl text-[#E7EAF0] mt-3.5">
-            About the departments
+            About The Departments
           </h2>
         </motion.div>
 

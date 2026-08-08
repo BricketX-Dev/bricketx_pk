@@ -45,7 +45,7 @@ export default function CompanyFaq() {
             Common Questions
           </span>
           <h2 className="font-heading font-semibold text-3xl sm:text-4xl text-[#E7EAF0] mt-3.5">
-            About the company
+            About The Company
           </h2>
         </motion.div>
 

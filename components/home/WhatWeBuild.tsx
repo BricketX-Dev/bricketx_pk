@@ -31,7 +31,7 @@ export default function WhatWeBuild() {
             What We Build
           </motion.span>
           <motion.h2 variants={fadeUp} className="font-heading font-semibold text-[clamp(30px,4vw,44px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]">
-            Not services <span className="text-[#c39967]">Systems</span>
+            Not Services <span className="text-[#c39967]">Systems</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="text-[#a5adb6] text-[17px]">The infrastructure that runs the BricketX ecosystem end to end.</motion.p>
         </motion.div>

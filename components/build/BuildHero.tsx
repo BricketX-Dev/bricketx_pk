@@ -25,7 +25,7 @@ export default function BuildHero() {
             variants={fadeUp}
             className="font-heading font-semibold text-[clamp(40px,5vw,60px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]"
           >
-            Not services
+            Not Services
             <br />
             <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.3)]">
               Systems

@@ -45,7 +45,7 @@ export default function BuildFaq() {
             Common Questions
           </span>
           <h2 className="font-heading font-semibold text-3xl sm:text-4xl text-[#E7EAF0] mt-3.5">
-            About what we build.
+            About What We Build
           </h2>
         </motion.div>
 

@@ -25,7 +25,7 @@ export default function Departments() {
             Our Departments
           </motion.span>
           <motion.h2 variants={fadeUp} className="font-heading font-semibold text-[clamp(30px,4vw,44px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]">
-            Five teams <span className="text-[#c39967]">One engine room</span>
+            Five Teams <span className="text-[#c39967]">One Engine Room</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="text-[#a5adb6] text-[17px]">Every part of the BricketX ecosystem is built, run and scaled by a dedicated department in Karachi.</motion.p>
         </motion.div>

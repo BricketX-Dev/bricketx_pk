@@ -37,7 +37,7 @@ export default function LifeAtBricketX() {
               Life at BricketX
             </span>
             <h2 className="font-heading font-semibold text-[clamp(26px,3.5vw,36px)] text-[#E7EAF0] mt-[14px] mb-[16px]">
-              Real people. Real work.<br /> No stock photos.
+              Real People Real Work<br /> No Stock Photos
             </h2>
             <p className="font-sans text-[#8B95A6] text-[16px] mb-[16px] leading-relaxed">
               Inside the Karachi hub you'll find engineers, designers, marketers and operators building side by side — coding, filming, designing, brainstorming and shipping the systems that run the network.

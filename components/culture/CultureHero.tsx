@@ -41,14 +41,14 @@ export default function CultureHero() {
             variants={fadeUp}
             className="font-heading font-semibold text-[clamp(38px,5.5vw,60px)] leading-[1.08] tracking-[-0.02em] mt-[20px] mb-[14px]"
           >
-            The people behind<br />
-            the{" "}
+            The People Behind<br />
+            The{" "}
             <motion.span 
               className="inline-block text-[#c39967] drop-shadow-[0_0_20px_rgba(195,153,103,0.5)]"
               animate={{ textShadow: ["0px 0px 20px rgba(195,153,103,0.3)", "0px 0px 40px rgba(195,153,103,0.7)", "0px 0px 20px rgba(195,153,103,0.3)"] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
-              engine room.
+              Engine Room
             </motion.span>
           </motion.h1>
 

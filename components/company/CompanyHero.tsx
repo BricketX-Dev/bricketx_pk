@@ -25,8 +25,8 @@ export default function CompanyHero() {
             variants={fadeUp}
             className="font-heading font-semibold text-[clamp(40px,5vw,60px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]"
           >
-            The engine behind <br />
-            the <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.3)]">network</span>
+            The Engine Behind <br />
+            The <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.3)]">Network</span>
           </motion.h1>
 
           <motion.p

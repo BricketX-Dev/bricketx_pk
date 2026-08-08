@@ -29,7 +29,7 @@ export default function CultureValues() {
               How We Think
             </motion.span>
             <motion.h2 variants={fadeUp} className="font-heading font-semibold text-[clamp(28px,4vw,40px)] text-[#E7EAF0] mt-[14px] mb-[12px]">
-              The principles we run on.
+              The Principles We Run On
             </motion.h2>
             <motion.p variants={fadeUp} className="font-sans text-[#8B95A6] text-[17px]">
               Seven values that shape every decision inside the hub.

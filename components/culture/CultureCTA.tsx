@@ -30,7 +30,7 @@ export default function CultureCTA() {
           </motion.span>
 
           <motion.h2 variants={fadeUp} className="font-heading font-semibold text-[clamp(30px,5vw,46px)] text-[#E7EAF0] mb-[16px] mt-[14px]">
-            Ready to join the engine room?
+            Ready To Join The Engine Room?
           </motion.h2>
 
           <motion.p variants={fadeUp} className="font-sans text-[#8B95A6] text-[17px] max-w-[520px] mx-auto mb-[40px]">

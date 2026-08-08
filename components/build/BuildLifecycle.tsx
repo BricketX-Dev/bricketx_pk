@@ -22,7 +22,7 @@ export default function BuildLifecycle() {
             How We Build
           </span>
           <h2 className="font-heading font-semibold text-3xl sm:text-4xl text-[#E7EAF0] mt-3.5 mb-3">
-            From idea to shipped system.
+            From Idea To Shipped System
           </h2>
           <p className="font-sans text-base sm:text-lg text-[#8B95A6]">
             Every system follows the same disciplined path through the hub.

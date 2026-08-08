@@ -19,7 +19,7 @@ export default function Hero() {
           
           {/* Using the new font-heading class here */}
           <h1 className="font-heading font-semibold text-[clamp(40px,5vw,72px)] xl:text-[76px] leading-[1.08] tracking-[-0.02em] mt-[20px] lg:mt-[24px]">
-            Powering the <br /> 
+            Powering The <br /> 
             <span className="whitespace-nowrap"><span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.3)]">BricketX</span> Network</span>
           </h1>
           

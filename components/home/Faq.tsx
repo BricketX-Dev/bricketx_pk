@@ -29,7 +29,7 @@ export default function Faq() {
             Common Questions
           </motion.span>
           <motion.h2 variants={fadeUp} className="font-heading font-semibold text-[clamp(30px,4vw,44px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]">
-            Frequently <span className="text-[#c39967]">asked</span>
+            Frequently <span className="text-[#c39967]">Asked</span>
           </motion.h2>
         </motion.div>
         

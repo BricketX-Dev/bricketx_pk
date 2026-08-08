@@ -28,7 +28,7 @@ export default function OperatingModel() {
             The Operating Model
           </span>
           <h2 className="font-heading font-semibold text-3xl sm:text-4xl text-[#E7EAF0] mt-3.5 mb-3">
-            Idea to scale, every time
+            Idea To Scale, Every Time
           </h2>
           <p className="font-sans text-base sm:text-lg text-[#8B95A6]">
             Every project moves through the same path across the hub's five departments.

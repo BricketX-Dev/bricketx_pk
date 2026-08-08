@@ -18,7 +18,7 @@ export default function Cta() {
           Let's Build
         </motion.span>
         <motion.h2 variants={fadeUp} className="font-heading font-semibold text-[clamp(32px,5vw,52px)] mb-[18px] mt-[16px]">
-          The engine room <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.4)]">is open</span>
+          The Engine Room <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.4)]">Is Open</span>
         </motion.h2>
         <motion.p variants={fadeUp} className="text-[#a5adb6] text-[18px] max-w-[520px] mx-auto mb-[34px]">
           Partner with the team powering the BricketX network, or join it.

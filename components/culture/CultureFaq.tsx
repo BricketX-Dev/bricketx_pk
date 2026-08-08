@@ -33,7 +33,7 @@ export default function CultureFaq() {
               Common Questions
             </motion.span>
             <motion.h2 variants={fadeUp} className="font-heading font-semibold text-[clamp(28px,4vw,40px)] text-[#E7EAF0] mt-[14px] mb-[12px]">
-              About working here.
+              About Working Here
             </motion.h2>
           </div>
 

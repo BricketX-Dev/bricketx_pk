@@ -101,13 +101,13 @@ export default function GlobalOperations() {
               viewport={{ once: true, margin: "-100px" }}
               className="inline-block"
             >
-              {Array.from("One network. ").map((char, index) => (
+              {Array.from("One Network ").map((char, index) => (
                 <motion.span key={`H2-1-${index}`} variants={typewriterChar} className="inline-block whitespace-pre">
                   {char}
                 </motion.span>
               ))}
               <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.3)]">
-                {Array.from("Four regions.").map((char, index) => (
+                {Array.from("Four Regions").map((char, index) => (
                   <motion.span key={`H2-2-${index}`} variants={typewriterChar} className="inline-block whitespace-pre">
                     {char}
                   </motion.span>

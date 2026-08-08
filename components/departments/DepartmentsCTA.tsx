@@ -22,7 +22,7 @@ export default function DepartmentsCTA() {
         </span>
 
         <h2 className="font-heading font-semibold text-[clamp(32px,5vw,52px)] mb-[18px] mt-[16px]">
-          Every department, <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.4)]">one engine room</span>
+          Every Department, <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.4)]">One Engine Room</span>
         </h2>
 
         <p className="font-sans text-[#a5adb6] text-[18px] max-w-[520px] mx-auto mb-[34px]">
