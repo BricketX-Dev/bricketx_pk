@@ -3,9 +3,12 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeUp, staggerContainer } from "@/lib/animations";
+import { submitLeadAction } from "@/app/actions/submit-lead"; // Adjust path if needed
 
 export default function ContactSection() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
@@ -14,17 +17,27 @@ export default function ContactSection() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Add your form submission logic here
-    setIsSubmitted(true);
+    setIsLoading(true);
+    setErrorMsg("");
+
+    // Call the Server Action
+    const result = await submitLeadAction(formData);
+
+    if (result.success) {
+      setIsSubmitted(true);
+    } else {
+      setErrorMsg("Something went wrong. Please try again.");
+    }
+    
+    setIsLoading(false);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  // Helper to determine if label should float
   const isFloat = (id: keyof typeof formData) => focusedField === id || formData[id].length > 0;
 
   return (
@@ -45,6 +58,7 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-[60px] lg:gap-[100px] items-center">
           
           {/* ================= LEFT SIDE: COPY & INFO ================= */}
+          {/* ... [Your exact left side code remains unchanged here] ... */}
           <motion.div
             initial="hidden"
             animate="visible"
@@ -65,7 +79,6 @@ export default function ContactSection() {
             </motion.p>
 
             <motion.div variants={fadeUp} className="space-y-[40px]">
-              {/* Info Block 1 */}
               <div className="group">
                 <div className="font-sans font-medium text-[11px] tracking-[0.12em] uppercase text-[#5C6577] mb-[10px]">Direct Email</div>
                 <a href="mailto:Info@bricketx.pk" className="inline-flex items-center gap-[12px] font-heading font-medium text-[22px] text-[#E7EAF0] group-hover:text-[#c39967] transition-colors duration-300">
@@ -74,7 +87,6 @@ export default function ContactSection() {
                 </a>
               </div>
               
-              {/* Info Block 2 */}
               <div className="relative pl-[20px] border-l border-[#313B48]">
                 <div className="absolute left-[-5px] top-[4px] w-[9px] h-[9px] rounded-full bg-[#c39967] shadow-[0_0_12px_rgba(195,153,103,0.8)]">
                   <div className="absolute inset-0 rounded-full bg-[#c39967] animate-ping opacity-75"></div>
@@ -98,11 +110,8 @@ export default function ContactSection() {
           >
             <div className="relative bg-gradient-to-b from-[#131820] to-[#0E1116] border border-[#2A3340] shadow-[0_30px_80px_rgba(0,0,0,0.5)] rounded-[28px] p-[32px] sm:p-[48px] overflow-hidden">
               
-              {/* Premium Glass Edge Highlights */}
               <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#c39967]/30 to-transparent" />
               <div className="absolute bottom-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#ffffff]/5 to-transparent" />
-              
-              {/* Subtle inner noise/texture (optional aesthetic touch via radial gradient) */}
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#c39967]/5 via-transparent to-transparent pointer-events-none" />
 
               <AnimatePresence mode="wait">
@@ -205,20 +214,27 @@ export default function ContactSection() {
                       />
                     </div>
 
+                    {errorMsg && (
+                      <div className="text-red-500 text-sm font-sans">{errorMsg}</div>
+                    )}
+
                     {/* --- SUBMIT BUTTON --- */}
                     <div className="pt-[8px]">
                       <motion.button 
                         whileHover={{ scale: 1.01 }}
                         whileTap={{ scale: 0.98 }}
                         type="submit" 
-                        className="relative w-full overflow-hidden font-heading font-semibold text-[16px] p-[18px_32px] rounded-[12px] bg-[#c39967] text-[#1a1206] transition-all shadow-[0_0_20px_rgba(195,153,103,0.15)] hover:shadow-[0_0_35px_rgba(195,153,103,0.35)] flex justify-center items-center gap-[12px] group"
+                        disabled={isLoading}
+                        className="relative w-full overflow-hidden font-heading font-semibold text-[16px] p-[18px_32px] rounded-[12px] bg-[#c39967] text-[#1a1206] transition-all shadow-[0_0_20px_rgba(195,153,103,0.15)] hover:shadow-[0_0_35px_rgba(195,153,103,0.35)] flex justify-center items-center gap-[12px] group disabled:opacity-70 disabled:cursor-not-allowed"
                       >
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1s] ease-in-out" />
-                        <span className="relative z-10">Send Message</span>
-                        <svg className="relative z-10 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M22 2L11 13" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                          <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
+                        <span className="relative z-10">{isLoading ? "Sending..." : "Send Message"}</span>
+                        {!isLoading && (
+                          <svg className="relative z-10 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 2L11 13" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        )}
                       </motion.button>
                     </div>
                   </motion.form>

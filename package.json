@@ -9,13 +9,15 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.112.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.42.2",
     "lucide-react": "^1.25.0",
-    "next": "^16.2.11",
+    "next": "^16.3.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "resend": "^6.18.1",
     "tailwind-merge": "^3.6.0",
     "three": "^0.185.1"
   },
