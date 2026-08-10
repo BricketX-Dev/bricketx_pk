@@ -55,12 +55,14 @@ export default function LifeAtBricketX() {
             </p>
             <div className="mt-[32px]">
               <Link
-                href="/life-at-bricketx"
-                className="group font-heading font-medium text-[15px] py-[14px] px-[26px] rounded-[10px] transition-all duration-300 inline-flex items-center gap-[10px] border border-[#313B48] text-[#E7EAF0] hover:border-[#c39967] hover:bg-[#c39967]/10 hover:shadow-[0_0_20px_rgba(195,153,103,0.15)] hover:-translate-y-1"
-              >
-                See Life at BricketX
-                <span className="transition-transform duration-300 group-hover:translate-x-1 text-[#c39967]">&rarr;</span>
-              </Link>
+                  href="/contact"
+                  className="group font-heading font-medium text-[15px] py-[14px] px-[26px] rounded-[10px] transition-all duration-300 inline-flex items-center gap-[10px] border border-[#313B48] text-[#E7EAF0] hover:border-[#c39967] hover:bg-[#c39967]/10 hover:shadow-[0_0_20px_rgba(195,153,103,0.15)] hover:-translate-y-1"
+                >
+                  Connect With BricketX
+                  <span className="transition-transform duration-300 group-hover:translate-x-1 text-[#c39967]">
+                    &rarr;
+                  </span>
+                </Link>
             </div>
           </motion.div>
 
