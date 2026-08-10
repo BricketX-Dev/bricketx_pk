@@ -49,39 +49,66 @@ export default function CompanyFaq() {
           </h2>
         </motion.div>
 
-        <div className="space-y-3">
-          {companyFaqs.map((faq, idx) => (
-            <div
-              key={idx}
-              className="border border-[#252D38] rounded-xl bg-[#0E1116] overflow-hidden"
-            >
-              <button
-                onClick={() => toggle(idx)}
-                className="w-full text-left px-6 py-5 font-sans font-medium text-base sm:text-lg text-[#E7EAF0] flex justify-between items-center gap-4 cursor-pointer"
+        <div className="space-y-4">
+          {companyFaqs.map((faq, idx) => {
+            const isOpen = openIdx === idx;
+            
+            return (
+              <motion.div
+                key={idx}
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.2 }}
+                className={`group relative border rounded-xl overflow-hidden transition-all duration-300 ${
+                  isOpen 
+                    ? "border-[#C6A067]/40 bg-[#1A1F26] shadow-[0_0_20px_rgba(198,160,103,0.08)]" 
+                    : "border-[#252D38] bg-[#0E1116] hover:border-[#C6A067]/30"
+                }`}
               >
-                <span>{faq.q}</span>
-                <Plus
-                  className={`w-5 h-5 text-[#C6A067] transition-transform duration-300 flex-shrink-0 ${
-                    openIdx === idx ? "rotate-45" : ""
-                  }`}
+                {/* Animated Left Accent Line */}
+                <div 
+                  className={`absolute left-0 top-0 bottom-0 w-1 bg-[#C6A067] transition-transform duration-300 origin-center ${
+                    isOpen ? "scale-y-100" : "scale-y-0 group-hover:scale-y-100"
+                  }`} 
                 />
-              </button>
-              <AnimatePresence>
-                {openIdx === idx && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="px-6 pb-6 font-sans text-sm sm:text-base text-[#8B95A6] max-w-[760px] leading-relaxed">
-                      {faq.a}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+
+                <button
+                  onClick={() => toggle(idx)}
+                  className="w-full text-left px-6 py-5 font-sans font-medium text-base sm:text-lg flex justify-between items-center gap-4 cursor-pointer relative z-10"
+                >
+                  <span className={`transition-colors duration-300 ${
+                    isOpen ? "text-[#C6A067]" : "text-[#E7EAF0] group-hover:text-[#C6A067]"
+                  }`}>
+                    {faq.q}
+                  </span>
+                  
+                  <div className={`p-1.5 rounded-full transition-colors duration-300 ${
+                    isOpen ? "bg-[#C6A067]/10" : "bg-transparent group-hover:bg-[#C6A067]/10"
+                  }`}>
+                    <Plus
+                      className={`w-5 h-5 transition-transform duration-300 flex-shrink-0 ${
+                        isOpen ? "rotate-45 text-[#C6A067]" : "text-[#8B95A6] group-hover:text-[#C6A067]"
+                      }`}
+                    />
+                  </div>
+                </button>
+                
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      <div className="px-6 pb-6 pt-1 font-sans text-sm sm:text-base text-[#8B95A6] max-w-[760px] leading-relaxed relative z-10">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
