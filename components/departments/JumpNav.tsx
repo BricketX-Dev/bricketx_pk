@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface JumpNavProps {
   activeId: string;
@@ -21,9 +22,7 @@ export default function JumpNav({ activeId }: JumpNavProps) {
   useEffect(() => {
     const handleScroll = () => {
       if (!containerRef.current) return;
-      // Get the distance from top of the document to our placeholder
       const rect = containerRef.current.getBoundingClientRect();
-      // 68px is the height of your Navbar
       if (rect.top <= 68) {
         setIsFixed(true);
       } else {
@@ -32,37 +31,42 @@ export default function JumpNav({ activeId }: JumpNavProps) {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Check initial position on load
+    handleScroll(); 
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <>
-      {/* Invisible placeholder anchor to track scroll position and prevent layout shift when fixed */}
       <div ref={containerRef} className="h-0 w-full" />
 
       <div
         className={`z-40 transition-all duration-300 ${
           isFixed
-            ? "fixed top-[68px] left-0 right-0 bg-[#0E1116]/90 backdrop-blur-md border-b border-[#252D38] shadow-[0_10px_30px_rgba(0,0,0,0.6)] py-2"
-            : "relative bg-[#0E1116]/82 backdrop-blur-md border-y border-[#252D38] my-8 py-3"
+            ? "fixed top-[68px] left-0 right-0 bg-[#0E1116]/90 backdrop-blur-md border-b border-[#252D38] shadow-[0_10px_30px_rgba(0,0,0,0.6)] py-3"
+            : "relative bg-[#0E1116]/82 backdrop-blur-md border-y border-[#252D38] my-8 py-4"
         }`}
       >
         <div className="max-w-[1160px] mx-auto px-6">
-          <div className="flex justify-center gap-2 overflow-x-auto scrollbar-none w-full">
+          <div className="flex justify-center gap-3 overflow-x-auto scrollbar-none w-full relative">
             {navItems.map((item) => {
               const isActive = activeId === item.id;
               return (
                 <a
                   key={item.id}
                   href={`#${item.id}`}
-                  className={`font-mono text-[12.5px] tracking-wide px-3.5 py-1.5 border rounded-full whitespace-nowrap transition-all duration-200 flex-none ${
-                    isActive
-                      ? "border-[#C6A067] text-[#C6A067] bg-[#C6A067]/10 shadow-[0_0_12px_rgba(198,160,103,0.2)]"
-                      : "border-[#252D38] text-[#8B95A6] hover:border-[#C6A067] hover:text-[#C6A067]"
+                  className={`relative font-mono text-[12.5px] tracking-wide px-4 py-2 whitespace-nowrap transition-colors duration-300 flex-none z-10 ${
+                    isActive ? "text-[#C6A067]" : "text-[#8B95A6] hover:text-[#E7EAF0]"
                   }`}
                 >
+                  {isActive && (
+                    <motion.div
+                      layoutId="activePill"
+                      className="absolute inset-0 bg-[#C6A067]/10 border border-[#C6A067] rounded-full shadow-[0_0_15px_rgba(198,160,103,0.2)] z-[-1]"
+                      initial={false}
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
                   {item.label}
                 </a>
               );
@@ -71,8 +75,7 @@ export default function JumpNav({ activeId }: JumpNavProps) {
         </div>
       </div>
 
-      {/* Spacer to replace height when the nav pops into fixed position */}
-      {isFixed && <div className="h-[52px] w-full" />}
+      {isFixed && <div className="h-[60px] w-full" />}
     </>
   );
 }
