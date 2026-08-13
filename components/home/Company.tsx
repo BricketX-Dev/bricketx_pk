@@ -1,62 +1,71 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { fadeUp, staggerContainer } from "./animations";
 
 export default function Company() {
-  const companies = [
-    { title: 'Our Ecosystem', desc: 'How BricketX\'s entities and verticals fit together.' },
-    { title: 'How We Operate', desc: 'The idea-to-scale process the hub runs every day.' },
-    { title: 'Global Operations', desc: 'Who does what across UK/BVI, Dubai, Kenya and Pakistan.' },
-    { title: 'Innovation Lab', desc: 'Where new products and AI experiments begin.' }
-  ];
-
   return (
-    <section id="company" className="relative z-10 py-[80px] bg-[#0E1116] overflow-hidden border-y border-[#a5adb6]/10">
-      <div 
-        className="absolute inset-0 z-0 pointer-events-none opacity-[0.04]"
-        style={{
-          backgroundImage: "url('/images/home/Texture-02.svg')", 
-          backgroundRepeat: "repeat",
-          backgroundSize: "280px", 
-        }}
-      />
-      
-      <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-[#0E1116] via-transparent via-20% to-transparent" />
-      <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-[#0E1116] via-transparent via-20% to-transparent" />
-      
-      <div className="max-w-[1160px] mx-auto px-6 relative z-10">
+    <section id="company" className="relative z-10 py-[100px] bg-[#171717] border-t border-white/5">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <motion.div 
           initial="hidden" 
           whileInView="visible" 
           viewport={{ once: true, margin: "-100px" }} 
           variants={staggerContainer}
-          className="max-w-[640px] mb-[44px]"
+          className="text-center max-w-[700px] mx-auto mb-16"
         >
-          <motion.span variants={fadeUp} className="font-sans font-medium text-[12px] tracking-[0.18em] uppercase text-[#c39967] inline-flex items-center gap-[10px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-[#c39967] before:opacity-70">
+          <motion.span variants={fadeUp} className="font-sans font-bold text-[12px] tracking-[0.2em] uppercase text-[#c39967] mb-4 flex items-center justify-center gap-3">
+            <span className="w-8 h-[1px] bg-[#c39967]"></span>
             The Company
+            <span className="w-8 h-[1px] bg-[#c39967]"></span>
           </motion.span>
-          <motion.h2 variants={fadeUp} className="font-heading font-semibold text-[clamp(30px,4vw,44px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]">
-            The Engine Behind <span className="text-[#c39967] drop-shadow-[0_0_15px_rgba(195,153,103,0.2)]">The Network</span>
+          <motion.h2 variants={fadeUp} className="font-heading font-semibold text-[38px] md:text-[52px] leading-[1.1] text-white">
+            The Complete <span className="text-[#c39967]">Ecosystem.</span>
           </motion.h2>
-          <motion.p variants={fadeUp} className="text-[#a5adb6] text-[17px]">How BricketX is structured, how it operates, and where it's headed.</motion.p>
         </motion.div>
         
+        {/* Tekmino Bento Grid Style */}
         <motion.div 
           initial="hidden" 
           whileInView="visible" 
           viewport={{ once: true, margin: "-100px" }} 
           variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[16px]"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[280px]"
         >
-          {companies.map((co, i) => (
-            <motion.a key={i} variants={fadeUp} href="#" className="block bg-[#151A21]/80 backdrop-blur-sm border border-[#a5adb6]/20 rounded-[14px] p-[26px_22px] transition-all duration-300 hover:border-[#c39967] hover:-translate-y-[4px] hover:bg-[#151A21] hover:shadow-[0_10px_30px_rgba(195,153,103,0.15)] group relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-[50px] h-[50px] bg-gradient-to-bl from-[#c39967]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-bl-full" />
-              <h3 className="font-heading font-semibold text-[19px] mb-[9px] group-hover:text-[#c39967] transition-colors relative z-10">{co.title}</h3>
-              <p className="text-[#a5adb6] text-[14px] group-hover:text-[#ffffff] transition-colors relative z-10">{co.desc}</p>
-              <div className="mt-[16px] font-sans font-medium text-[12px] text-[#c39967] opacity-0 transition-all duration-300 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 relative z-10">Explore &rarr;</div>
-            </motion.a>
-          ))}
+          {/* Large Image Block */}
+          <motion.div variants={fadeUp} className="relative lg:col-span-2 row-span-2 rounded-[24px] overflow-hidden group">
+            <Image src="/dummy-image.jpg" alt="How We Operate" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/20 to-transparent" />
+            <div className="absolute bottom-8 left-8 right-8">
+              <h3 className="font-heading font-bold text-[32px] text-white mb-2">How We Operate</h3>
+              <p className="text-white/80 text-[16px] max-w-[400px]">The idea-to-scale process the hub runs every day to support global initiatives.</p>
+            </div>
+          </motion.div>
+
+          {/* Solid Color Focus Block */}
+          <motion.div variants={fadeUp} className="relative bg-[#c39967] rounded-[24px] p-8 flex flex-col justify-between group overflow-hidden">
+            <div className="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full blur-[20px]" />
+            <div className="w-14 h-14 rounded-full bg-[#121212] flex items-center justify-center text-[#c39967] shadow-xl">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m3-4h1m-1 4h1m-5 8h8"/></svg>
+            </div>
+            <div>
+              <h3 className="font-heading font-bold text-[24px] text-[#121212] mb-2">Global Operations</h3>
+              <p className="text-[#121212]/80 font-medium">Bridging UK/BVI, Dubai, Kenya and Pakistan effortlessly.</p>
+            </div>
+          </motion.div>
+
+          {/* Dark Glass Block with Image overlay */}
+          <motion.div variants={fadeUp} className="relative bg-[#121212] border border-white/5 rounded-[24px] overflow-hidden group">
+            <div className="absolute inset-0 opacity-40 mix-blend-luminosity">
+              <Image src="/dummy-image.jpg" alt="Innovation Lab" fill className="object-cover" />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#121212] to-transparent opacity-90" />
+            <div className="absolute inset-0 p-8 flex flex-col justify-end">
+              <h3 className="font-heading font-bold text-[24px] text-white mb-2">Innovation Lab</h3>
+              <p className="text-[#a5adb6]">Where new products and AI experiments begin before deployment.</p>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

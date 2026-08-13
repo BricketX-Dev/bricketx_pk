@@ -1,33 +1,42 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { fadeUp, staggerContainer } from "./animations";
 
 export default function Departments() {
   const depts = [
-    { id: '01', title: 'Technology', desc: 'The web platforms, AI, automation and security that keep the network running.', chips: ['Web Development', 'AI', 'Automation', 'Cyber Security'] },
-    { id: '02', title: 'Marketing', desc: 'Demand, brand and investor reach across every channel and search surface.', chips: ['Social Media', 'SEO', 'Video Production', 'Paid Ads', 'PR'] },
-    { id: '03', title: 'Operations', desc: 'Investor relations, CRM, reporting and documentation that keep capital moving.', chips: ['Investor Relations', 'CRM', 'Reporting', 'Documentation'] },
-    { id: '04', title: 'Creative', desc: 'Branding, interface and motion that shape how the network looks and feels.', chips: ['Branding', 'UI/UX', 'Graphic Design', 'Motion Graphics'] }
+    { title: 'Technology', desc: 'Web platforms, AI, automation and security architecture.', img: '/dummy-image.jpg' },
+    { title: 'Marketing', desc: 'Demand generation, brand building and investor reach.', img: '/dummy-image.jpg' },
+    { title: 'Operations', desc: 'Investor relations, CRM, and capital documentation.', img: '/dummy-image.jpg' },
+    { title: 'Creative', desc: 'Branding, interface, and motion graphics design.', img: '/dummy-image.jpg' }
   ];
 
   return (
-    <section id="departments" className="relative z-10 py-[60px]">
-      <div className="max-w-[1160px] mx-auto px-6">
+    <section id="departments" className="relative z-10 py-[100px] bg-[#171717]">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <motion.div 
           initial="hidden" 
           whileInView="visible" 
           viewport={{ once: true, margin: "-100px" }} 
           variants={staggerContainer}
-          className="max-w-[640px] mb-[44px]"
+          className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16"
         >
-          <motion.span variants={fadeUp} className="font-sans font-medium text-[12px] tracking-[0.18em] uppercase text-[#c39967] inline-flex items-center gap-[10px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-[#c39967] before:opacity-70">
-            Our Departments
-          </motion.span>
-          <motion.h2 variants={fadeUp} className="font-heading font-semibold text-[clamp(30px,4vw,44px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]">
-            Five Teams <span className="text-[#c39967]">One Engine Room</span>
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-[#a5adb6] text-[17px]">Every part of the BricketX ecosystem is built, run and scaled by a dedicated department in Karachi.</motion.p>
+          <div className="max-w-[700px]">
+            <motion.span variants={fadeUp} className="font-sans font-bold text-[12px] tracking-[0.2em] uppercase text-[#c39967] mb-4 flex items-center gap-3">
+              <span className="w-8 h-[1px] bg-[#c39967]"></span>
+              Core Departments
+            </motion.span>
+            <motion.h2 variants={fadeUp} className="font-heading font-semibold text-[38px] md:text-[52px] leading-[1.1] text-white">
+              Five Dedicated Teams. <br/><span className="text-[#c39967]">One Engine Room.</span>
+            </motion.h2>
+          </div>
+          <motion.div variants={fadeUp}>
+            <button className="flex items-center gap-2 text-white hover:text-[#c39967] transition-colors border-b border-[#c39967] pb-1 font-medium">
+              View All Departments
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </button>
+          </motion.div>
         </motion.div>
         
         <motion.div 
@@ -35,31 +44,34 @@ export default function Departments() {
           whileInView="visible" 
           viewport={{ once: true, margin: "-100px" }} 
           variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-2 gap-[16px]"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {depts.map((dept, i) => (
-            <motion.div key={i} variants={fadeUp} className="bg-[#151A21] border border-[#a5adb6]/20 rounded-[14px] p-[28px] transition-all duration-300 hover:border-[#c39967] hover:bg-[#151A21]/80 hover:-translate-y-[4px] hover:shadow-[0_10px_30px_rgba(195,153,103,0.15)] group cursor-pointer">
-              <span className="font-sans font-medium text-[12px] text-[#c39967] tracking-[0.1em]">{dept.id}</span>
-              <h3 className="font-heading font-semibold text-[23px] mt-[14px] mb-[8px] group-hover:text-[#c39967] transition-colors">{dept.title}</h3>
-              <p className="text-[#a5adb6] text-[15px] mb-[16px]">{dept.desc}</p>
-              <div className="flex flex-wrap gap-[8px]">
-                {dept.chips.map((chip, j) => (
-                  <span key={j} className="font-sans font-medium text-[11.5px] tracking-[0.03em] text-[#a5adb6] bg-[#0E1116] border border-[#a5adb6]/20 px-[11px] py-[5px] rounded-[20px] transition-colors group-hover:border-[#c39967]/50 group-hover:text-[#ffffff]">{chip}</span>
-                ))}
+            <motion.div key={i} variants={fadeUp} className="bg-[#121212] rounded-[24px] overflow-hidden border border-white/5 hover:border-[#c39967]/50 transition-all duration-500 group">
+              {/* Card Image Header */}
+              <div className="relative w-full aspect-[4/3] overflow-hidden">
+                <Image 
+                  src={dept.img} 
+                  alt={dept.title} 
+                  fill 
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-[#c39967]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
+                
+                {/* Floating Icon inside Image */}
+                <div className="absolute bottom-4 right-4 w-12 h-12 bg-[#121212] rounded-full flex items-center justify-center text-[#c39967] transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  <svg className="w-5 h-5 -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7-7l7 7-7 7"/></svg>
+                </div>
+              </div>
+
+              {/* Card Content */}
+              <div className="p-8">
+                <span className="font-sans font-bold text-[14px] text-[#c39967] tracking-wider mb-2 block">0{i + 1}.</span>
+                <h3 className="font-heading font-bold text-[24px] text-white mb-3 group-hover:text-[#c39967] transition-colors">{dept.title}</h3>
+                <p className="text-[#a5adb6] text-[15px] leading-[1.6]">{dept.desc}</p>
               </div>
             </motion.div>
           ))}
-          
-          <motion.div variants={fadeUp} className="md:col-span-2 bg-[#151A21] border border-[#a5adb6]/20 rounded-[14px] p-[28px] transition-all duration-300 hover:border-[#c39967] hover:bg-[#151A21]/80 hover:-translate-y-[4px] hover:shadow-[0_10px_30px_rgba(195,153,103,0.15)] group cursor-pointer">
-            <span className="font-sans font-medium text-[12px] text-[#c39967] tracking-[0.1em]">05</span>
-            <h3 className="font-heading font-semibold text-[23px] mt-[14px] mb-[8px] group-hover:text-[#c39967] transition-colors">Production</h3>
-            <p className="text-[#a5adb6] text-[15px] mb-[16px]">Research, process and coordination that turn ideas into shipped, scalable work across every region.</p>
-            <div className="flex flex-wrap gap-[8px]">
-              {['Research', 'Process Management', 'Training', 'Global Coordination'].map((chip, j) => (
-                <span key={j} className="font-sans font-medium text-[11.5px] tracking-[0.03em] text-[#a5adb6] bg-[#0E1116] border border-[#a5adb6]/20 px-[11px] py-[5px] rounded-[20px] transition-colors group-hover:border-[#c39967]/50 group-hover:text-[#ffffff]">{chip}</span>
-              ))}
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

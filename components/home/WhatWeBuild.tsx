@@ -1,39 +1,35 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { fadeUp, staggerContainer } from "./animations";
 
 export default function WhatWeBuild() {
-  const items = [
-    { title: 'Investor Portal', desc: 'The dashboard investors log into to track holdings and returns.' },
-    { title: 'Web Platforms', desc: 'The public sites and applications across the ecosystem.' },
-    { title: 'AI Systems', desc: 'Models and assistants that automate research and support.' },
-    { title: 'CRM Solutions', desc: 'Systems that manage investor and partner relationships.' },
-    { title: 'Dashboards', desc: 'Live reporting views for teams and stakeholders.' },
-    { title: 'Automations', desc: 'Workflows that remove manual, repetitive work.' },
-    { title: 'Marketing Funnels', desc: 'The paths that turn interest into qualified investors.' },
-    { title: 'Reporting Systems', desc: 'Structured, auditable performance and compliance reporting.' },
-    { title: 'Brand Guidelines', desc: 'The rules that keep every touchpoint consistent.' },
-    { title: 'Operational Systems', desc: 'The internal tooling that runs day-to-day execution.' }
+  const projects = [
+    { title: 'Investor Portal Dashboard', category: 'Technology', img: '/dummy-image.jpg', span: 'col-span-1 lg:col-span-8' },
+    { title: 'Marketing Funnels', category: 'Growth', img: '/dummy-image.jpg', span: 'col-span-1 lg:col-span-4' },
+    { title: 'AI Support Assistants', category: 'Automation', img: '/dummy-image.jpg', span: 'col-span-1 lg:col-span-4' },
+    { title: 'Global CRM Solutions', category: 'Operations', img: '/dummy-image.jpg', span: 'col-span-1 lg:col-span-8' },
   ];
 
   return (
-    <section id="build" className="relative z-10 py-[60px] bg-[#151A21] border-y border-[#a5adb6]/20">
-      <div className="max-w-[1160px] mx-auto px-6">
+    <section id="build" className="relative z-10 py-[100px] bg-[#121212]">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <motion.div 
           initial="hidden" 
           whileInView="visible" 
           viewport={{ once: true, margin: "-100px" }} 
           variants={staggerContainer}
-          className="max-w-[640px] mb-[44px]"
+          className="text-center max-w-[700px] mx-auto mb-16"
         >
-          <motion.span variants={fadeUp} className="font-sans font-medium text-[12px] tracking-[0.18em] uppercase text-[#c39967] inline-flex items-center gap-[10px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-[#c39967] before:opacity-70">
+          <motion.span variants={fadeUp} className="font-sans font-bold text-[12px] tracking-[0.2em] uppercase text-[#c39967] mb-4 flex items-center justify-center gap-3">
+            <span className="w-8 h-[1px] bg-[#c39967]"></span>
             What We Build
+            <span className="w-8 h-[1px] bg-[#c39967]"></span>
           </motion.span>
-          <motion.h2 variants={fadeUp} className="font-heading font-semibold text-[clamp(30px,4vw,44px)] leading-[1.08] tracking-[-0.02em] mt-[16px] mb-[14px]">
-            Not Services <span className="text-[#c39967]">Systems</span>
+          <motion.h2 variants={fadeUp} className="font-heading font-semibold text-[38px] md:text-[52px] leading-[1.1] text-white">
+            Not Just Services. <br/><span className="text-[#c39967]">We Build Systems.</span>
           </motion.h2>
-          <motion.p variants={fadeUp} className="text-[#a5adb6] text-[17px]">The infrastructure that runs the BricketX ecosystem end to end.</motion.p>
         </motion.div>
         
         <motion.div 
@@ -41,15 +37,38 @@ export default function WhatWeBuild() {
           whileInView="visible" 
           viewport={{ once: true, margin: "-100px" }} 
           variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-[#a5adb6]/20 border border-[#a5adb6]/20 rounded-[14px] overflow-hidden hover:border-[#c39967]/30 transition-colors"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-6"
         >
-          {items.map((item, i) => (
-            <motion.div key={i} variants={fadeUp} className="bg-[#0E1116] p-[24px_26px] transition-all duration-300 hover:bg-[#0E1116]/60 hover:pl-[34px] border-l-4 border-transparent hover:border-[#c39967] cursor-pointer group">
-              <h3 className="font-heading font-semibold text-[18px] flex items-center gap-[11px] group-hover:text-[#c39967] transition-colors">
-                <i className="w-[6px] h-[6px] bg-[#c39967] rounded-full shrink-0 group-hover:scale-150 transition-transform" />
-                {item.title}
-              </h3>
-              <p className="text-[#a5adb6] text-[14px] mt-[7px] pl-[17px] group-hover:text-[#ffffff] transition-colors">{item.desc}</p>
+          {projects.map((proj, i) => (
+            <motion.div 
+              key={i} 
+              variants={fadeUp} 
+              className={`relative ${proj.span} aspect-[4/3] lg:aspect-auto lg:h-[400px] rounded-[24px] overflow-hidden group cursor-pointer`}
+            >
+              <Image 
+                src={proj.img} 
+                alt={proj.title} 
+                fill 
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              
+              {/* Dark gradient overlay that intensifies on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+              
+              {/* Content block pushing up on hover */}
+              <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-[#c39967]/20 border border-[#c39967]/50 text-[#c39967] text-[12px] font-bold tracking-wider uppercase mb-4 backdrop-blur-md">
+                  {proj.category}
+                </span>
+                <div className="flex justify-between items-end">
+                  <h3 className="font-heading font-bold text-[28px] text-white leading-[1.2] max-w-[80%]">
+                    {proj.title}
+                  </h3>
+                  <div className="w-12 h-12 rounded-full bg-white text-[#121212] flex items-center justify-center group-hover:bg-[#c39967] transition-colors duration-300">
+                    <svg className="w-5 h-5 -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 12h14m-7-7l7 7-7 7"/></svg>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           ))}
         </motion.div>

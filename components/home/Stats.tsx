@@ -13,21 +13,28 @@ export default function Stats() {
   ];
 
   return (
-    <section className="relative z-10 py-[48px]">
-      <div className="max-w-[1160px] mx-auto px-6">
+    <section className="relative z-10 py-[60px] bg-[#121212]">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <motion.div 
           initial="hidden" 
           whileInView="visible" 
           viewport={{ once: true, margin: "-50px" }} 
           variants={staggerContainer}
-          className="grid grid-cols-2 md:grid-cols-5 gap-[1px] bg-[#c39967]/20 border border-[#c39967]/30 rounded-[14px] overflow-hidden shadow-[0_10px_30px_rgba(195,153,103,0.05)]"
+          className="grid grid-cols-2 md:grid-cols-5 gap-[1px] bg-white/10 border border-white/10 rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
         >
           {stats.map((stat, i) => (
-            <motion.div key={i} variants={fadeUp} className={`bg-[#0E1116] py-[30px] px-[22px] text-center hover:bg-[#0E1116]/80 transition-colors duration-300 ${stat.colSpan || ''}`}>
-              <div className="font-heading text-[38px] font-semibold text-[#ffffff] drop-shadow-md">
-                <b className="text-[#c39967] font-semibold">{stat.num}</b>{stat.suffix}
+            <motion.div 
+              key={i} 
+              variants={fadeUp} 
+              className={`bg-[#151515] py-[40px] px-[24px] flex flex-col items-center justify-center text-center hover:bg-[#1a1a1a] transition-colors duration-500 group ${stat.colSpan || ''}`}
+            >
+              <div className="font-heading text-[42px] lg:text-[48px] font-bold text-white drop-shadow-md leading-none mb-2">
+                <span className="text-[#c39967]">{stat.num}</span>
+                <span className="text-white/90">{stat.suffix}</span>
               </div>
-              <div className="font-sans font-medium text-[11px] tracking-[0.08em] uppercase text-[#a5adb6] mt-[8px] group-hover:text-[#ffffff] transition-colors">{stat.label}</div>
+              <div className="font-sans font-semibold text-[12px] tracking-[0.1em] uppercase text-[#a5adb6] mt-2 group-hover:text-white transition-colors duration-300">
+                {stat.label}
+              </div>
             </motion.div>
           ))}
         </motion.div>
