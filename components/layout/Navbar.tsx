@@ -154,10 +154,8 @@ export default function Navbar() {
           </div>
         </div>
       </header>
-
-      {/* 2. SPACER DIV - Prevents hero content from jumping underneath the fixed navbar */}
-      {/* Adjusted height to account for the new top bar and main navbar height */}
-      <div className="h-[80px] lg:h-[126px] w-full bg-[#121212]" />
+      
+      <div className="h-[80px] lg:h-[90px] w-full bg-transparent pointer-events-none" />
     </>
   );
 }
