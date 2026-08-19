@@ -23,6 +23,12 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logo/logo.png",
   },
+  // ADD THIS VERIFICATION BLOCK
+  verification: {
+    other: {
+      "facebook-domain-verification": "sydx4ttbjd8ppgrgxrewo5rzpy54yt",
+    },
+  },
 };
 
 export default function RootLayout({
