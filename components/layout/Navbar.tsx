@@ -14,7 +14,6 @@ export default function Navbar() {
     setIsMenuOpen(false);
 
     if (href.startsWith("#")) {
-      // Handle smooth scroll if clicking a section hash on the home page
       if (pathname === "/") {
         document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
       } else {
@@ -45,6 +44,7 @@ export default function Navbar() {
                 width={160}
                 height={45}
                 className="h-[48px] w-auto object-contain scale-[1.4] origin-left"
+                style={{ width: "auto" }} // Fix for the aspect ratio warning
                 priority
               />
             </Link>
@@ -109,7 +109,7 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* 2. SPACER DIV - Prevents hero content from jumping underneath the fixed navbar */}
+      {/* 2. SPACER DIV */}
       <div className="h-[68px] w-full" />
     </>
   );
