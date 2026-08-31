@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import SmoothScrolling from "@/components/SmoothScrolling"; // IMPORT ADDED HERE
 
 // Initialize Manrope for body text
 const manrope = Manrope({
@@ -23,7 +24,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logo/logo.png",
   },
-  // ADD THIS VERIFICATION BLOCK
   verification: {
     other: {
       "facebook-domain-verification": "sydx4ttbjd8ppgrgxrewo5rzpy54yt",
@@ -42,15 +42,17 @@ export default function RootLayout({
       className={`${manrope.variable} ${outfit.variable} antialiased`}
     >
       <body>
-        <div className="relative min-h-screen bg-[#0E1116] text-[#ffffff] font-sans overflow-x-hidden selection:bg-[#c39967] selection:text-[#212121] flex flex-col">
-          <Navbar />
-          
-          <main className="relative flex-grow">
-            {children}
-          </main>
+        <SmoothScrolling>
+          <div className="relative min-h-screen bg-[#0E1116] text-[#ffffff] font-sans overflow-x-hidden selection:bg-[#c39967] selection:text-[#212121] flex flex-col">
+            <Navbar />
+            
+            <main className="relative flex-grow">
+              {children}
+            </main>
 
-          <Footer />
-        </div>
+            <Footer />
+          </div>
+        </SmoothScrolling>
       </body>
     </html>
   );

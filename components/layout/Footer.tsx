@@ -15,7 +15,7 @@ export default function Footer() {
                 width={120}
                 height={34}
                 className="w-[120px] h-auto object-contain -ml-2 transition-opacity duration-300 group-hover:opacity-80"
-                style={{ height: "auto" }} // Fix for the aspect ratio warning
+                style={{ height: "auto" }} 
               />
             </Link>
             <p className="text-[#a5adb6] text-[14px] max-w-[280px]">

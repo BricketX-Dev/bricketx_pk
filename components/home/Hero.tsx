@@ -13,17 +13,18 @@ export default function Hero() {
       {/* Background Image & Overlays */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/home/06.webp"
+          src="/images/home/Header.png"
           alt="BricketX Network Background"
           fill
           priority
-          /* Reduced opacity to 40 to make the background significantly darker */
-          className="object-cover object-center opacity-50"
+          className="object-cover object-center"
         />
-        {/* Deepened the base dark overlay from black/40 to black/60 */}
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60" />
+        {/* Lighter base dark overlay (changed from black/60 to black/40) */}
+        <div className="absolute inset-0 bg-black/40" />
+        {/* Softened vertical gradient to keep text readable but reveal more image */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
+        {/* Softened horizontal vignette edges */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
       </div>
 
       {/* Centered Content Container */}
